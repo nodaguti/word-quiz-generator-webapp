@@ -5,6 +5,10 @@
   "author": "nodaguti",
   "main": "lib/server.js",
   "bugs": "https://github.com/nodaguti/word-quiz-generator-webapp/issues",
+  "engines": {
+    "node": ">= 5.5.0",
+    "npm": ">= 3.0.0"
+  },
   "dependencies": {
     "camel-case": "^1.2.2",
     "constant-mirror": "^1.0.6",
