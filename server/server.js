@@ -10,8 +10,14 @@ import path from 'path';
 import routes from './routes.js';
 
 const app = new Koa();
-const ip = process.env.IP || '127.0.0.1';
-const port = process.env.PORT || 8080;
+const ip =
+  process.env.OPENSHIFT_NODEJS_IP ||
+  process.env.IP ||
+  '127.0.0.1';
+const port =
+  process.env.OPENSHIFT_NODEJS_PORT ||
+  process.env.PORT ||
+  8080;
 
 app.use(convert(logger()));
 app.use(convert(compress()));
