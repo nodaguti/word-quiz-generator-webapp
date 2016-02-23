@@ -82,12 +82,11 @@
   },
   "repository": "nodaguti/word-quiz-generator-webapp",
   "scripts": {
-    "build": "npm-run-all --parallel build:*",
+    "build": "npm-run-all build:*",
     "build:server": "babel server --out-dir lib --source-maps",
     "build:client": "webpack --config webpack.config.js --progress --display-error-details",
     "lint": "eslint server/** src/**",
     "start": "node lib/server.js",
-    "prepublish": "npm-run-all lint build",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
