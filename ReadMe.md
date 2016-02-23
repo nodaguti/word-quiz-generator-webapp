@@ -8,17 +8,24 @@ Once you specify a test material, Word Quiz Generator then retrieves a sentence 
 This is a NodeJS application. You need to have the latest version of Node.js.
 
 ```sh
-$ npm run start
+$ npm start
+```
+
+The app will run on `127.0.0.1:8080`. If you want to change, please specify a new IP address and port with environment variables:
+
+```sh
+export IP=192.168.0.1
+export PORT=8008
 ```
 
 ## Resources
 
 The lists of materials, sources and presets the application uses are defined in resources.json, which is located on the root of this repository as default.
 
-If you want to change the path, please specify a new path with environment variable like
+If you want to change the path, please specify a new path with environment variable:
 
 ```sh
-$ export RESOURCES=/path/to/resources.json
+export RESOURCES=/path/to/resources.json
 ```
 
 ### Materials
