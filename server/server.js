@@ -18,16 +18,17 @@ const port =
   process.env.OPENSHIFT_NODEJS_PORT ||
   process.env.PORT ||
   8080;
+const assetsPath = path.resolve(__dirname, '../assets');
 
 app.use(convert(logger()));
 app.use(convert(compress()));
 app.use(convert(parseJSON()));
-app.use(convert(mount('/assets', serve(path.join(__dirname, '../assets')))));
+app.use(convert(mount('/assets', serve(assetsPath))));
 routes(app);
 
-/* eslint-disable no-console */
 if (!module.parent) {
   app.listen(port, ip, () => {
+    // eslint-disable-next-line no-console
     console.log(`Now the app is running on http://${ip}:${port}`);
   });
 }

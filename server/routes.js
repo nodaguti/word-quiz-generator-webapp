@@ -7,7 +7,7 @@ import route from 'koa-route';
 import path from 'path';
 import QuizAPI from './api';
 
-const indexPath = path.join(__dirname, '../index.html');
+const indexPath = path.resolve(__dirname, '../index.html');
 let indexPage;
 
 /* eslint-disable no-param-reassign */

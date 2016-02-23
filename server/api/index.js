@@ -6,16 +6,16 @@ import path from 'path';
 
 const resourcesPath =
   (process.env.RESOURCES && path.resolve(process.env.RESOURCES)) ||
-  path.join(__dirname, '../../resources.json');
+  path.resolve(__dirname, '../../resources.json');
 const resourcesDir = path.dirname(resourcesPath);
 const resources = require(resourcesPath);
 
 resources.materials.forEach((item) => {
-  item.path = path.join(resourcesDir, item.path);
+  item.path = path.resolve(resourcesDir, item.path);
 });
 
 resources.sources.forEach((item) => {
-  item.path = path.join(resourcesDir, item.path);
+  item.path = path.resolve(resourcesDir, item.path);
 });
 
 const safeResource = cloneDeep(resources);
