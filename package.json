@@ -36,7 +36,6 @@
     "redux-localstorage": "^0.4.0",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^1.0.3",
-    "source-map-support": "^0.4.0",
     "transit-immutable-js": "^0.5.3",
     "transit-js": "^0.8.846",
     "word-quiz-generator": "^0.4.0"
@@ -63,7 +62,11 @@
     "webpack": "^1.12.13"
   },
   "files": [
-    "lib"
+    "lib",
+    "assets",
+    "index.html",
+    "resources.json",
+    "screenshot.png"
   ],
   "homepage": "nodaguti/word-quiz-generator-webapp",
   "keywords": [
