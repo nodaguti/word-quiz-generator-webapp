@@ -10,6 +10,7 @@ import path from 'path';
 import routes from './routes.js';
 
 const app = new Koa();
+const ip = process.env.IP || '127.0.0.1';
 const port = process.env.PORT || 8080;
 
 app.use(convert(logger()));
@@ -20,6 +21,7 @@ routes(app);
 
 /* eslint-disable no-console */
 if (!module.parent) {
-  app.listen(port);
-  console.log(`Now the app is running on http://localhost:${port}`);
+  app.listen(port, ip, () => {
+    console.log(`Now the app is running on http://${ip}:${port}`);
+  });
 }
