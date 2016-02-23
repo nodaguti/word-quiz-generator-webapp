@@ -12,7 +12,7 @@
       "abbrRegExp": "\\.\\.\\."
     },
     "ojp": {
-      "sentenceSeparator": "(?:。|\n|「|」|『|』)",
+      "sentenceSeparator": "(?:。|\\n|「|」|『|』)",
       "clauseRegExp": "[^、。「」『』]+",
       "wordRegExp": "\\S+",
       "wordBoundaryRegExp": "\\s",
