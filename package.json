@@ -10,6 +10,7 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
+    "babel-runtime": "^6.5.0",
     "camel-case": "^1.2.2",
     "constant-mirror": "^1.0.6",
     "fetch-check-http-status": "^1.0.0",
