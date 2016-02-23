@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+body {
+  margin: 0;
+
+  /**
+   * Prevent Chrome from rendering stuffs larger on printing.
+   * https://bugs.chromium.org/p/chromium/issues/detail?id=273306
+   */
+  @media print {
+    width: 190mm;
+  }
+}
+
+:global(#root) {
+  height: 100%;
+}
