@@ -2,16 +2,21 @@
 
 ![screenshot.png](screenshot.png)
 
-Once you specify a test material, Word Quiz Generator then retrieves a sentence which includes one of the word/phrase in the material from existing sources, and creates a write-the-definition type of exam.
+A web application for generating a vocabulary quiz.
+
+Once you specify a test material, Online Word Quiz Generator then retrieves a sentence which includes one of the words/phrases in the material from existing source texts, and creates a "Write the definition" questions.
+
+This package features the Web-based GUI.
+If you need full control over the quiz generation process, or want to use it from CLI or your program, please use [word-quiz-generator](https://github.com/nodaguti/word-quiz-generator) package.
 
 ## Launch
-This is a NodeJS application. You need to have the latest version of Node.js.
-
 ```sh
 $ npm start
 ```
 
-The app will run on `127.0.0.1:8080`. If you want to change, please specify a new IP address and port with environment variables:
+This is a NodeJS application. You need to have the latest version of Node.js.
+
+The app will run on `127.0.0.1:8080` by default. If you want to change it, please specify a new IP address (hostname) and port number through environment variables:
 
 ```sh
 export IP=192.168.0.1
@@ -20,9 +25,9 @@ export PORT=8008
 
 ## Resources
 
-The lists of materials, sources and presets the application uses are defined in resources.json, which is located on the root of this repository as default.
+The lists of materials, sources and presets the application uses are stored in resources.json, which is located on the root of this repository by default.
 
-If you want to change the path, please specify a new path with environment variable:
+If you want to change the path, please specify a new path through environment variables:
 
 ```sh
 export RESOURCES=/path/to/resources.json
@@ -30,7 +35,7 @@ export RESOURCES=/path/to/resources.json
 
 ### Materials
 
-The materials are a CSV-formatted list of words/phrases to be tested.
+The materials are a CSV-formatted list of words/phrases to be on quiz.
 
 ```
 {
@@ -42,9 +47,27 @@ The materials are a CSV-formatted list of words/phrases to be tested.
 }
 ```
 
-where __id__ is an unique identity, __name__ is a material's name which will be shown in the material list on the app, __lang__ is an language name and must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp), __sections__ is the number of sections the material has, and __path__ is a relative path to the material from resources.json.
+- __id__
 
-For details of the content of a CSV file, please see [word-quiz-generator repo](https://github.com/nodaguti/word-quiz-generator).
+  An unique identity.
+
+- __name__
+
+  A material's name which will be shown in the material list on the app.
+
+- __lang__
+
+  An language name and must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp).
+
+- __sections__
+
+  The number of sections the material has.
+
+- __path__
+
+  A relative path to the material from resources.json.
+
+For details of the format of a material file, please see [the Read Me at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#material).
 
 ### Sources
 
@@ -59,9 +82,23 @@ The sources are a text which will be used on generating a question sentence.
 }
 ```
 
-where __id__ is an unique identity, __name__ is a source's name which will be shown in the sources list on the app, __lang__ is an language name and must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp), and path is a relative path to the material from resources.json.
+- __id__
 
-The app can use a preprocessed text and a lemmatized text to improve the quality of searching a word/phrase. For details please see [word-quiz-generator repo](https://github.com/nodaguti/word-quiz-generator).
+  An unique identity.
+
+- __name__
+
+  A source's name which will be shown in the sources list on the app.
+
+- __lang__
+
+  An language name and must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp).
+
+- __path__
+
+  A relative path to the material from resources.json.
+
+The app can use a preprocessed and lemmatized text to improve the quality of searching a word/phrase. For details please see [Preprocessing and Lemmatizing at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#preprocessing-and-lemmatizing).
 
 ### Presets
 
