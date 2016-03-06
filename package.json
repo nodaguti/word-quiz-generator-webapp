@@ -77,10 +77,7 @@
     "quiz",
     "test"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "http://nodaguti.mit-license.org/"
-  },
+  "license": "MIT",
   "repository": "nodaguti/word-quiz-generator-webapp",
   "scripts": {
     "build": "npm-run-all build:*",
