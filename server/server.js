@@ -5,7 +5,7 @@ import mount from 'koa-mount';
 import serve from 'koa-static';
 import compress from 'koa-compress';
 import parseJSON from 'koa-parse-json';
-import logger from 'koa-logger';
+import logger from 'koa-log';
 import path from 'path';
 import routes from './routes.js';
 
