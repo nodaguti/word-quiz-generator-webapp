@@ -1,4 +1,8 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "rules": {
+    // This rule causes no rule definition error.
+    "react/prefer-stateless-function": 0
+  }
 }
