@@ -16,7 +16,7 @@ import AdvancedSettings from 'components/settings/Advanced';
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
-  resource: state.resource,
+  resources: state.resources,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -31,7 +31,7 @@ class Generator extends Component {
     generatorActions: PropTypes.object.isRequired,
     settingsActions: PropTypes.object.isRequired,
     settings: PropTypes.instanceOf(Record).isRequired,
-    resource: PropTypes.instanceOf(Record).isRequired,
+    resources: PropTypes.instanceOf(Record).isRequired,
   };
 
   componentWillMount() {
@@ -50,7 +50,7 @@ class Generator extends Component {
     const {
       settingsActions: actions,
       settings,
-      resource,
+      resources,
     } = this.props;
     const {
       updateMaterial,
@@ -61,7 +61,7 @@ class Generator extends Component {
       updateAdvanced,
     } = actions;
     const lang = this.props.settings.target.material.get('lang') || '';
-    const preset = resource.presets.get(lang);
+    const preset = resources.presets.get(lang);
 
     return (
       <div>
@@ -75,7 +75,7 @@ class Generator extends Component {
             />
           </Toolbar>
           <TargetSettings
-            materials={resource.materials}
+            materials={resources.materials}
             currentSettings={settings.target}
             updateMaterial={updateMaterial}
             updateSections={updateSections}
@@ -85,7 +85,7 @@ class Generator extends Component {
             updateFormat={updateFormat}
           />
           <SourcesSettings
-            sources={resource.sources}
+            sources={resources.sources}
             filter={lang}
             currentSettings={settings.sources}
             updateSources={updateSources}

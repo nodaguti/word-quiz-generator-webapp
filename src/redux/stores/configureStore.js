@@ -6,12 +6,12 @@ import persistState from 'redux-localstorage';
 import rootReducer from 'redux/reducers';
 import transit from 'transit-immutable-js';
 import { records as quizRecords } from 'redux/reducers/quiz';
-import { records as resourceRecords } from 'redux/reducers/resource';
+import { records as resourcesRecords } from 'redux/reducers/resources';
 import { records as settingsRecords } from 'redux/reducers/settings';
 
 const recordTransit = transit.withRecords([
   ...quizRecords,
-  ...resourceRecords,
+  ...resourcesRecords,
   ...settingsRecords,
 ]);
 

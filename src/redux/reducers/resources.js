@@ -1,11 +1,11 @@
 import camelCase from 'camel-case';
 import { Record, List, Map, fromJS } from 'immutable';
 
-const Resource = new Record({
+const Resources = new Record({
   materials: new List(),
   sources: new List(),
   presets: new Map(),
-}, 'resource');
+}, 'resources');
 
 const ACTIONS_MAP = {
   fetchAllMaterials(state, { materials }) {
@@ -21,13 +21,13 @@ const ACTIONS_MAP = {
   },
 };
 
-const initialState = new Resource();
+const initialState = new Resources();
 
-export default function resource(state = initialState, { type, payload }) {
+export default function resources(state = initialState, { type, payload }) {
   const reducer = ACTIONS_MAP[camelCase(type)];
 
   return (reducer) ? reducer(state, payload) : state;
 }
 
 // For transit-immutable-js
-export const records = [Resource];
+export const records = [Resources];

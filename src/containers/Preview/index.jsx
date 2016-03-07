@@ -16,7 +16,7 @@ import VerticalCSS from './vertical-rl.css';
 const mapStateToProps = (state) => ({
   settings: state.settings,
   quiz: state.quiz,
-  presets: state.resource.presets,
+  presets: state.resources.presets,
 });
 
 const mapDispatchToProps = (dispatch) => ({
