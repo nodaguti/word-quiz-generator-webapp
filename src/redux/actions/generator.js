@@ -58,13 +58,13 @@ export function fetchAllPresets() {
     }));
 }
 
-export function generate(setting) {
+export function generate(settings) {
   const {
     target,
     sources,
     format,
     advanced,
-  } = setting;
+  } = settings;
   const data = {
     material: target.material.get('id'),
     sections: target.sections,

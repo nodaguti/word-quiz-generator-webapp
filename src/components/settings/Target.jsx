@@ -8,7 +8,7 @@ import TextField from 'material-ui/lib/text-field';
 export default class TargetSettings extends Component {
   static propTypes = {
     materials: PropTypes.instanceOf(List).isRequired,
-    currentSetting: PropTypes.instanceOf(Record).isRequired,
+    currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateMaterial: PropTypes.func.isRequired,
     updateSections: PropTypes.func.isRequired,
   };
@@ -16,10 +16,10 @@ export default class TargetSettings extends Component {
   onChangeMaterial = (event, index, value) => {
     const {
       materials,
-      currentSetting,
+      currentSettings,
       updateMaterial,
     } = this.props;
-    const oldMaterial = currentSetting.material;
+    const oldMaterial = currentSettings.material;
 
     if (value !== oldMaterial.get('id')) {
       const newMaterial = materials.find((item) => item.get('id') === value);
@@ -33,11 +33,11 @@ export default class TargetSettings extends Component {
 
   onBlurSections = (event) => {
     const {
-      currentSetting,
+      currentSettings,
       updateSections,
     } = this.props;
 
-    if (event.target.value !== currentSetting.sections) {
+    if (event.target.value !== currentSettings.sections) {
       const sections = event.target.value;
       updateSections(sections);
     }
@@ -66,13 +66,13 @@ export default class TargetSettings extends Component {
   }
 
   render() {
-    const { currentSetting } = this.props;
-    const currentMaterial = currentSetting.material;
+    const { currentSettings } = this.props;
+    const currentMaterial = currentSettings.material;
     const {
       id: materialId,
       sections: materialSections,
     } = currentMaterial.toObject();
-    const currentSections = currentSetting.sections;
+    const currentSections = currentSettings.sections;
 
     return (
       <Panel title="Target">

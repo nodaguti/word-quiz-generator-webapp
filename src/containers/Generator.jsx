@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
 import * as GeneratorActions from 'redux/actions/generator';
-import * as SettingActions from 'redux/actions/setting';
+import * as SettingsActions from 'redux/actions/settings';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Header from 'components/Header';
 import Content from 'components/Content';
@@ -15,22 +15,22 @@ import FormatSettings from 'components/settings/Format';
 import AdvancedSettings from 'components/settings/Advanced';
 
 const mapStateToProps = (state) => ({
-  setting: state.setting,
+  settings: state.settings,
   resource: state.resource,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   routeActions: bindActionCreators(routeActions, dispatch),
   generatorActions: bindActionCreators(GeneratorActions, dispatch),
-  settingActions: bindActionCreators(SettingActions, dispatch),
+  settingsActions: bindActionCreators(SettingsActions, dispatch),
 });
 
 class Generator extends Component {
   static propTypes = {
     routeActions: PropTypes.object.isRequired,
     generatorActions: PropTypes.object.isRequired,
-    settingActions: PropTypes.object.isRequired,
-    setting: PropTypes.instanceOf(Record).isRequired,
+    settingsActions: PropTypes.object.isRequired,
+    settings: PropTypes.instanceOf(Record).isRequired,
     resource: PropTypes.instanceOf(Record).isRequired,
   };
 
@@ -43,13 +43,13 @@ class Generator extends Component {
   onGenerate = () => {
     this.props.generatorActions.clearQuiz();
     this.props.routeActions.push('/preview');
-    this.props.generatorActions.generate(this.props.setting);
+    this.props.generatorActions.generate(this.props.settings);
   }
 
   render() {
     const {
-      settingActions: actions,
-      setting,
+      settingsActions: actions,
+      settings,
       resource,
     } = this.props;
     const {
@@ -60,7 +60,7 @@ class Generator extends Component {
       updateFormat,
       updateAdvanced,
     } = actions;
-    const lang = this.props.setting.target.material.get('lang') || '';
+    const lang = this.props.settings.target.material.get('lang') || '';
     const preset = resource.presets.get(lang);
 
     return (
@@ -76,24 +76,24 @@ class Generator extends Component {
           </Toolbar>
           <TargetSettings
             materials={resource.materials}
-            currentSetting={setting.target}
+            currentSettings={settings.target}
             updateMaterial={updateMaterial}
             updateSections={updateSections}
           />
           <FormatSettings
-            currentSetting={setting.format}
+            currentSettings={settings.format}
             updateFormat={updateFormat}
           />
           <SourcesSettings
             sources={resource.sources}
             filter={lang}
-            currentSetting={setting.sources}
+            currentSettings={settings.sources}
             updateSources={updateSources}
             clearSources={clearSources}
           />
           <AdvancedSettings
             preset={preset}
-            currentSetting={setting.advanced}
+            currentSettings={settings.advanced}
             updateAdvanced={updateAdvanced}
           />
         </Content>

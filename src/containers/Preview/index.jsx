@@ -14,7 +14,7 @@ import CSS from './index.css';
 import VerticalCSS from './vertical-rl.css';
 
 const mapStateToProps = (state) => ({
-  setting: state.setting,
+  settings: state.settings,
   quiz: state.quiz,
   presets: state.resource.presets,
 });
@@ -27,7 +27,7 @@ class Preview extends Component {
   static propTypes = {
     routeActions: PropTypes.object.isRequired,
     quiz: PropTypes.instanceOf(Record).isRequired,
-    setting: PropTypes.instanceOf(Record).isRequired,
+    settings: PropTypes.instanceOf(Record).isRequired,
     presets: PropTypes.instanceOf(Map).isRequired,
   };
 
@@ -48,7 +48,7 @@ class Preview extends Component {
   }
 
   getLang() {
-    const material = this.props.setting.target.material;
+    const material = this.props.settings.target.material;
     return material.get('lang');
   }
 
@@ -90,7 +90,7 @@ class Preview extends Component {
     const lang = this.getLang();
     const preset = this.props.presets.get(lang) || {};
     const wordRegExp =
-      this.props.setting.advanced.wordRegExp ||
+      this.props.settings.advanced.wordRegExp ||
       preset.wordRegExp ||
       '\\w';
     const divider = findKey(wordDivider, (langList) =>

@@ -12,7 +12,7 @@ export default class SourcesSettings extends Component {
   static propTypes = {
     sources: PropTypes.instanceOf(List).isRequired,
     filter: PropTypes.string.isRequired,
-    currentSetting: PropTypes.instanceOf(List).isRequired,
+    currentSettings: PropTypes.instanceOf(List).isRequired,
     updateSources: PropTypes.func.isRequired,
     clearSources: PropTypes.func.isRequired,
   };
@@ -51,7 +51,7 @@ export default class SourcesSettings extends Component {
     const {
       sources,
       filter,
-      currentSetting: selectedSources,
+      currentSettings: selectedSources,
     } = this.props;
 
     return sources

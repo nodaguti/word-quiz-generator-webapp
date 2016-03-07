@@ -5,7 +5,7 @@ import TextField from 'material-ui/lib/text-field';
 
 export default class FormatSettings extends Component {
   static propTypes = {
-    currentSetting: PropTypes.instanceOf(Record).isRequired,
+    currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateFormat: PropTypes.func.isRequired,
   };
 
@@ -30,13 +30,13 @@ export default class FormatSettings extends Component {
   }
 
   render() {
-    const { currentSetting } = this.props;
+    const { currentSettings } = this.props;
     const {
       title,
       size_: size,
       instruction,
       answerKeysLabel,
-    } = currentSetting.toObject();
+    } = currentSettings.toObject();
 
     return (
       <Panel title="Format">

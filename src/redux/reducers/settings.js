@@ -4,7 +4,7 @@ import { Record, List, Map } from 'immutable';
 const Target = new Record({
   material: new Map(),
   sections: '',
-}, 'setting-target');
+}, 'target-settings');
 
 const Format = new Record({
   title: '',
@@ -12,7 +12,7 @@ const Format = new Record({
               // https://github.com/facebook/immutable-js/issues/377
   instruction: '',
   answerKeysLabel: '',
-}, 'setting-format');
+}, 'format-settings');
 
 const Advanced = new Record({
   sentenceSeparator: '',
@@ -20,14 +20,14 @@ const Advanced = new Record({
   wordRegExp: '',
   wordBoundaryRegExp: '',
   abbrRegExp: '',
-}, 'setting-advanced');
+}, 'advanced-settings');
 
-const Setting = new Record({
+const Settings = new Record({
   target: new Target(),
   sources: new List(),  // @type {List<String>} list of source IDs
   format: new Format(),
   advanced: new Advanced(),
-}, 'setting');
+}, 'settings');
 
 const ACTIONS_MAP = {
   updateMaterial(state, { material }) {
@@ -69,13 +69,13 @@ const ACTIONS_MAP = {
   },
 };
 
-const initialState = new Setting();
+const initialState = new Settings();
 
-export default function setting(state = initialState, { type, payload }) {
+export default function settings(state = initialState, { type, payload }) {
   const reducer = ACTIONS_MAP[camelCase(type)];
 
   return (reducer) ? reducer(state, payload) : state;
 }
 
 // For transit-immutable-js
-export const records = [Target, Format, Advanced, Setting];
+export const records = [Target, Format, Advanced, Settings];

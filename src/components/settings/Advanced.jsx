@@ -7,7 +7,7 @@ import CSS from './settings.css';
 export default class AdvancedSettings extends Component {
   static propTypes = {
     preset: PropTypes.object,
-    currentSetting: PropTypes.instanceOf(Record).isRequired,
+    currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateAdvanced: PropTypes.func.isRequired,
   };
 
@@ -39,7 +39,7 @@ export default class AdvancedSettings extends Component {
   render() {
     const {
       preset = {},
-      currentSetting,
+      currentSettings,
     } = this.props;
     const {
       sentenceSeparator,
@@ -47,7 +47,7 @@ export default class AdvancedSettings extends Component {
       wordRegExp,
       wordBoundaryRegExp,
       abbrRegExp,
-    } = currentSetting.toObject();
+    } = currentSettings.toObject();
 
     return (
       <Panel title="Advanced" expandable>
