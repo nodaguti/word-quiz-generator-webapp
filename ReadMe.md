@@ -25,7 +25,7 @@ export PORT=8008
 
 ## Resources
 
-The lists of materials, sources and presets the application uses are stored in resources.json, which is located on the root of this repository by default.
+The lists of materials and sources the application uses are stored in resources.json, which is located on the root of this repository by default.
 
 If you want to change the path, please specify a new path through environment variables:
 
@@ -57,17 +57,18 @@ The materials are a CSV-formatted list of words/phrases to be on quiz.
 
 - __lang__
 
-  An language name and must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp).
+  The language name in which a material written.
+  It must be one of the [IETF language tags](http://unicode.org/cldr/utility/languageid.jsp).
 
 - __sections__
 
-  The number of sections the material has.
+  The number of sections a material has.
 
 - __path__
 
-  A relative path to the material from resources.json.
+  The relative path to a material from resources.json.
 
-For details of the format of a material file, please see [the Read Me at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#material).
+For more details about the format of a material file, please see [ReadMe at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#material).
 
 ### Sources
 
@@ -98,11 +99,7 @@ The sources are a text which will be used on generating a question sentence.
 
   A relative path to the material from resources.json.
 
-The app can use a preprocessed and lemmatized text to improve the quality of searching a word/phrase. For details please see [Preprocessing and Lemmatizing at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#preprocessing-and-lemmatizing).
-
-### Presets
-
-The presets are predefined Advanced section settings.
+The app can use a preprocessed and lemmatized text to improve the quality of searching a word/phrase. For more details please see [Preprocessing and Lemmatizing at word-quiz-generator repository](https://github.com/nodaguti/word-quiz-generator#preprocessing-and-lemmatizing).
 
 ## Contributing
 

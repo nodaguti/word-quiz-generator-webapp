@@ -2,21 +2,5 @@
   "materials": [
   ],
   "sources": [
-  ],
-  "presets": {
-    "en": {
-      "sentenceSeparator": "(?:[?!.]\\s?)+\"?(?:\\s|$)(?!,)",
-      "clauseRegExp": "[^,:\"?!.]+",
-      "wordRegExp": "[\\w'-]+",
-      "wordBoundaryRegExp": "\\b",
-      "abbrRegExp": "\\.\\.\\."
-    },
-    "ojp": {
-      "sentenceSeparator": "(?:。|\\n|「|」|『|』)",
-      "clauseRegExp": "[^、。「」『』]+",
-      "wordRegExp": "\\S+",
-      "wordBoundaryRegExp": "\\s",
-      "abbrRegExp": "〜"
-    }
-  }
+  ]
 }
