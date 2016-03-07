@@ -11,16 +11,18 @@ import TableBody from 'material-ui/lib/table/table-body';
 export default class SourcesSettings extends Component {
   static propTypes = {
     sources: PropTypes.instanceOf(List).isRequired,
-    currentSetting: PropTypes.instanceOf(List).isRequired,
     filter: PropTypes.string.isRequired,
+    currentSetting: PropTypes.instanceOf(List).isRequired,
     updateSources: PropTypes.func.isRequired,
+    clearSources: PropTypes.func.isRequired,
   };
 
   onRowSelection = (selectedRows) => {
     const {
       sources,
-      updateSources,
       filter,
+      updateSources,
+      clearSources,
     } = this.props;
 
     if (selectedRows === 'all') {
@@ -32,7 +34,7 @@ export default class SourcesSettings extends Component {
           .toList()
       );
     } else if (selectedRows === 'none') {
-      updateSources(new List());
+      clearSources();
     } else {
       updateSources(
         sources

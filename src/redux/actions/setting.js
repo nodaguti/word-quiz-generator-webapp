@@ -32,6 +32,12 @@ export function updateSources(sources) {
   };
 }
 
+export function clearSources() {
+  return {
+    type: actions.CLEAR_SELECTED_SOURCES,
+  };
+}
+
 export function updateFormat({
   title,
   size,

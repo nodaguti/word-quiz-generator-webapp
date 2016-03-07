@@ -56,6 +56,7 @@ class Generator extends Component {
       updateMaterial,
       updateSections,
       updateSources,
+      clearSources,
       updateFormat,
       updateAdvanced,
     } = actions;
@@ -88,6 +89,7 @@ class Generator extends Component {
             filter={lang}
             currentSetting={setting.sources}
             updateSources={updateSources}
+            clearSources={clearSources}
           />
           <AdvancedSettings
             preset={preset}

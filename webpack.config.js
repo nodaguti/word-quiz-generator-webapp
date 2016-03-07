@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable max-len */
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -8,27 +8,34 @@ module.exports = {
   context: __dirname,
   entry: './src/index.jsx',
   output: {
-    path: __dirname + '/assets',
+    path: `${__dirname}/assets`,
     filename: 'app.bundle.js',
   },
 
   devtool: '#source-map',
   resolve: {
     extensions: ['', '.js', '.json', '.jsx'],
-    root: __dirname + '/src',
+    root: `${__dirname}/src`,
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      screwIe8: true,
-      compress: {
-        warnings: false,
-      },
-    }),
-    new ExtractTextPlugin('app.bundle.css'),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': `"${process.env.NODE_ENV || 'development'}"`
-    }),
-  ],
+  plugins: (() => {
+    const isDev = process.env.NODE_ENV === 'development';
+    const plugins = [
+      new ExtractTextPlugin('app.bundle.css'),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': `'${process.env.NODE_ENV || 'production'}'`,
+      }),
+    ];
+    const prodPlugins = [
+      new webpack.optimize.UglifyJsPlugin({
+        screwIe8: true,
+        compress: {
+          warnings: false,
+        },
+      }),
+    ];
+
+    return isDev ? plugins : plugins.concat(prodPlugins);
+  })(),
   module: {
     loaders: [
       {
@@ -39,7 +46,7 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'),
-      }
+      },
     ],
   },
   postcss: [
