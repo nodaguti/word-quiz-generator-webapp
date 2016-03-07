@@ -49,7 +49,7 @@ const ACTIONS_MAP = {
   updateFormat(state, formatProps) {
     return Object
       .keys(formatProps)
-      .filter((key) => formatProps[key])
+      .filter((key) => formatProps[key] !== undefined)
       .reduce((newState, key) =>
         newState.setIn(['format', key], formatProps[key])
       , state);
@@ -58,10 +58,14 @@ const ACTIONS_MAP = {
   updateAdvanced(state, advancedProps) {
     return Object
       .keys(advancedProps)
-      .filter((key) => advancedProps[key])
+      .filter((key) => advancedProps[key] !== undefined)
       .reduce((newState, key) =>
         newState.setIn(['advanced', key], advancedProps[key])
       , state);
+  },
+
+  clearAdvanced(state) {
+    return state.delete('advanced');
   },
 };
 

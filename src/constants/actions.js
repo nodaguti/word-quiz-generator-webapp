@@ -11,5 +11,6 @@ export default constantMirror(
   'UPDATE_SECTIONS',
   'UPDATE_SOURCES',
   'UPDATE_FORMAT',
-  'UPDATE_ADVANCED'
+  'UPDATE_ADVANCED',
+  'CLEAR_ADVANCED'
 );

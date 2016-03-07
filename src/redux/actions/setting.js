@@ -11,6 +11,9 @@ export function updateMaterial({ material, isLangUpdated }) {
       dispatch({
         type: actions.CLEAR_SELECTED_SOURCES,
       });
+      dispatch({
+        type: actions.CLEAR_ADVANCED,
+      });
     }
   };
 }

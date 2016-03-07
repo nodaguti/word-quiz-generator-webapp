@@ -50,7 +50,7 @@ export default class AdvancedSettings extends Component {
     } = currentSetting.toObject();
 
     return (
-      <Panel title="Advanced">
+      <Panel title="Advanced" expandable>
         <p>
           These options are for advanced users.
           Please keep them untouched unless you know what you are doing.

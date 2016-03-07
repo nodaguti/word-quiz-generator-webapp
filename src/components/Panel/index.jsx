@@ -7,19 +7,27 @@ import CSS from './index.css';
 export default class SettingsPanel extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    expandable: PropTypes.bool,
     children: PropTypes.node,
   };
 
   render() {
     const {
       title,
+      expandable = false,
       children,
     } = this.props;
 
     return (
       <Card className={CSS.card}>
-        <CardTitle title={title} />
-        <CardText>{children}</CardText>
+        <CardTitle
+          title={title}
+          actAsExpander={expandable}
+          showExpandableButton={expandable}
+        />
+        <CardText expandable={expandable}>
+          {children}
+        </CardText>
       </Card>
     );
   }
