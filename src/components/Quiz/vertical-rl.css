@@ -1,3 +1,5 @@
+/* ----- helpers ----- */
+
 .combine {
   -moz-text-combine-upright: digit 2;
   -ms-text-combine-horizontal: digit 2;
@@ -10,6 +12,9 @@
   -ms-text-underline-position: right;
   text-underline-position: right;
 }
+
+
+/* ----- page classes ----- */
 
 .quiz {
   composes: combine;
@@ -32,15 +37,15 @@
    * while Firefox renders underlines at the right.
    * https://tategaki.github.io/commentaries/2015/11/10/commentary-text-decotrations.html
    */
-  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @media (-webkit-min-device-pixel-ratio: 0) {
     & u {
       text-decoration: overline;
     }
   }
 }
 
-@media print {
-  .pageBreak {
-    margin-right: 294mm;  /* psedo page breaking */
+.pageBreak {
+  @media print {
+    visibility: visible;
   }
 }
