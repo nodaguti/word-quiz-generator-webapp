@@ -73,15 +73,15 @@ class Generator extends Component {
               onTouchTap={this.onGenerate}
             />
           </Toolbar>
-          <FormatSettings
-            currentSetting={setting.format}
-            updateFormat={updateFormat}
-          />
           <TargetSettings
             materials={resource.materials}
             currentSetting={setting.target}
             updateMaterial={updateMaterial}
             updateSections={updateSections}
+          />
+          <FormatSettings
+            currentSetting={setting.format}
+            updateFormat={updateFormat}
           />
           <SourcesSettings
             sources={resource.sources}
