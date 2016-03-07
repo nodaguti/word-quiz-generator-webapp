@@ -68,6 +68,7 @@ export function generate(setting) {
   const data = {
     material: target.material.get('id'),
     sections: target.sections,
+    lang: target.material.get('lang'),
     sources: sources.toArray(),
     ...format.toObject(),
     ...advanced.toObject(),

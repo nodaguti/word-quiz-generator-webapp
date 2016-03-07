@@ -1,17 +1,13 @@
 import actions from 'constants/actions';
 
-export function updateMaterial({ material, preset }) {
+export function updateMaterial({ material, isLangUpdated }) {
   return (dispatch) => {
     dispatch({
       type: actions.UPDATE_MATERIAL,
       payload: { material },
     });
 
-    if (preset) {
-      dispatch({
-        type: actions.UPDATE_ADVANCED,
-        payload: { ...preset },
-      });
+    if (isLangUpdated) {
       dispatch({
         type: actions.CLEAR_SELECTED_SOURCES,
       });

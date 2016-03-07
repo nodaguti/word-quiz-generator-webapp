@@ -1,4 +1,4 @@
-import { Record } from 'immutable';
+import { Record, Map } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,6 +16,7 @@ import VerticalCSS from './vertical-rl.css';
 const mapStateToProps = (state) => ({
   setting: state.setting,
   quiz: state.quiz,
+  presets: state.resource.presets,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -27,6 +28,7 @@ class Preview extends Component {
     routeActions: PropTypes.object.isRequired,
     quiz: PropTypes.instanceOf(Record).isRequired,
     setting: PropTypes.instanceOf(Record).isRequired,
+    presets: PropTypes.instanceOf(Map).isRequired,
   };
 
   constructor() {
@@ -85,8 +87,12 @@ class Preview extends Component {
   }
 
   renderQuestions(questions) {
-    const wordRegExp = this.props.setting.advanced.wordRegExp;
     const lang = this.getLang();
+    const preset = this.props.presets.get(lang) || {};
+    const wordRegExp =
+      this.props.setting.advanced.wordRegExp ||
+      preset.wordRegExp ||
+      '\\w';
     const divider = findKey(wordDivider, (langList) =>
       langList.some((regExp) => regExp.test(lang))
     );

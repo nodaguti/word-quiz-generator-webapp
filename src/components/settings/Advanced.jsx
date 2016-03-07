@@ -6,6 +6,7 @@ import CSS from './settings.css';
 
 export default class AdvancedSettings extends Component {
   static propTypes = {
+    preset: PropTypes.object,
     currentSetting: PropTypes.instanceOf(Record).isRequired,
     updateAdvanced: PropTypes.func.isRequired,
   };
@@ -36,7 +37,10 @@ export default class AdvancedSettings extends Component {
   }
 
   render() {
-    const { currentSetting } = this.props;
+    const {
+      preset = {},
+      currentSetting,
+    } = this.props;
     const {
       sentenceSeparator,
       clauseRegExp,
@@ -54,7 +58,8 @@ export default class AdvancedSettings extends Component {
         <TextField
           fullWidth
           floatingLabelText="Regular expression of a sentence separator"
-          hintText={sentenceSeparator}
+          hintText={preset.sentenceSeparator}
+          defaultValue={sentenceSeparator}
           className={CSS.codeField}
           onBlur={this.onBlurSentenceSeparator}
         />
@@ -62,7 +67,8 @@ export default class AdvancedSettings extends Component {
         <TextField
           fullWidth
           floatingLabelText="Regular expression of a clause"
-          hintText={clauseRegExp}
+          hintText={preset.clauseRegExp}
+          defaultValue={clauseRegExp}
           className={CSS.codeField}
           onBlur={this.onBlurClauseRegExp}
         />
@@ -70,7 +76,8 @@ export default class AdvancedSettings extends Component {
         <TextField
           fullWidth
           floatingLabelText="Regular expression of a word"
-          hintText={wordRegExp}
+          hintText={preset.wordRegExp}
+          defaultValue={wordRegExp}
           className={CSS.codeField}
           onBlur={this.onBlurWordRegExp}
         />
@@ -78,7 +85,8 @@ export default class AdvancedSettings extends Component {
         <TextField
           fullWidth
           floatingLabelText="Regular expression of a word boundary"
-          hintText={wordBoundaryRegExp}
+          hintText={preset.wordBoundaryRegExp}
+          defaultValue={wordBoundaryRegExp}
           className={CSS.codeField}
           onBlur={this.onBlurWordBoundaryRegExp}
         />
@@ -86,7 +94,8 @@ export default class AdvancedSettings extends Component {
         <TextField
           fullWidth
           floatingLabelText="Regular expression of a abbreviation mark"
-          hintText={abbrRegExp}
+          hintText={preset.abbrRegExp}
+          defaultValue={abbrRegExp}
           className={CSS.codeField}
           onBlur={this.onBlurAbbrRegExp}
         />

@@ -59,8 +59,8 @@ class Generator extends Component {
       updateFormat,
       updateAdvanced,
     } = actions;
-    const presets = resource.presets;
     const lang = this.props.setting.target.material.get('lang') || '';
+    const preset = resource.presets.get(lang);
 
     return (
       <div>
@@ -78,7 +78,6 @@ class Generator extends Component {
             updateFormat={updateFormat}
           />
           <TargetSettings
-            presets={presets}
             materials={resource.materials}
             currentSetting={setting.target}
             updateMaterial={updateMaterial}
@@ -91,6 +90,7 @@ class Generator extends Component {
             updateSources={updateSources}
           />
           <AdvancedSettings
+            preset={preset}
             currentSetting={setting.advanced}
             updateAdvanced={updateAdvanced}
           />

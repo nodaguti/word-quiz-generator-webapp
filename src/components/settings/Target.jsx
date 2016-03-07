@@ -1,4 +1,4 @@
-import { List, Record, Map } from 'immutable';
+import { List, Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
 import SelectField from 'material-ui/lib/select-field';
@@ -7,7 +7,6 @@ import TextField from 'material-ui/lib/text-field';
 
 export default class TargetSettings extends Component {
   static propTypes = {
-    presets: PropTypes.instanceOf(Map).isRequired,
     materials: PropTypes.instanceOf(List).isRequired,
     currentSetting: PropTypes.instanceOf(Record).isRequired,
     updateMaterial: PropTypes.func.isRequired,
@@ -16,7 +15,6 @@ export default class TargetSettings extends Component {
 
   onChangeMaterial = (event, index, value) => {
     const {
-      presets,
       materials,
       currentSetting,
       updateMaterial,
@@ -27,13 +25,9 @@ export default class TargetSettings extends Component {
       const newMaterial = materials.find((item) => item.get('id') === value);
       const oldLang = oldMaterial.get('lang');
       const newLang = newMaterial.get('lang');
+      const isLangUpdated = oldLang !== newLang;
 
-      if (oldLang !== newLang) {
-        const preset = presets.get(newLang);
-        updateMaterial({ material: newMaterial, preset });
-      } else {
-        updateMaterial({ material: newMaterial });
-      }
+      updateMaterial({ material: newMaterial, isLangUpdated });
     }
   }
 
