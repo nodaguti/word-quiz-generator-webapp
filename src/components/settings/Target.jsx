@@ -87,7 +87,7 @@ export default class TargetSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Sections"
+          floatingLabelText="Sections *"
           hintText={materialSections}
           defaultValue={currentSections}
           onBlur={this.onBlurSections}

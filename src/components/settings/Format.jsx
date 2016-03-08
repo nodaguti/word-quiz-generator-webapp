@@ -42,17 +42,16 @@ export default class FormatSettings extends Component {
       <Panel title="Format">
         <TextField
           fullWidth
-          floatingLabelText="Title"
-          hintText="The quiz title"
+          floatingLabelText="Quiz Title"
           defaultValue={title}
           onBlur={this.onBlurTitle}
         />
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Size"
+          floatingLabelText="Size *"
           hintText="The number of questions the quiz will have"
-          defaultValue={size}
+          defaultValue={size || ''}
           onBlur={this.onBlurSize}
         />
         <br />

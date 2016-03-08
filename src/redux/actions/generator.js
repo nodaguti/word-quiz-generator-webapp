@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import 'isomorphic-fetch';
 import checkStatus from 'fetch-check-http-status';
 import actions from 'constants/actions';
@@ -16,9 +17,12 @@ export function fetchAllMaterials() {
       payload: { materials },
     }))
     .catch((err) => dispatch({
-      type: actions.FETCH_ALL_MATERIALS,
-      payload: err,
-      error: true,
+      type: actions.EMIT_ERROR,
+      payload: {
+        name: 'Load Error',
+        message: 'Failed to fetch the materials list. Please contact with the server administrator.',
+        details: err,
+      },
     }));
 }
 
@@ -34,9 +38,12 @@ export function fetchAllSources() {
       payload: { sources },
     }))
     .catch((err) => dispatch({
-      type: actions.FETCH_ALL_SOURCES,
-      payload: err,
-      error: true,
+      type: actions.EMIT_ERROR,
+      payload: {
+        name: 'Load Error',
+        message: 'Failed to fetch the sources list. Please contact with the server administrator.',
+        details: err,
+      },
     }));
 }
 
@@ -52,9 +59,12 @@ export function fetchAllPresets() {
       payload: { presets },
     }))
     .catch((err) => dispatch({
-      type: actions.FETCH_ALL_PRESETS,
-      payload: err,
-      error: true,
+      type: actions.EMIT_ERROR,
+      payload: {
+        name: 'Load Error',
+        message: 'Failed to fetch the presets list. Please contact with the server administrator.',
+        details: err,
+      },
     }));
 }
 
@@ -76,6 +86,18 @@ export function generate(settings) {
 
   data.size = data.size_;
 
+  // Validate sources here because <Table> has no validation methods.
+  if (sources.isEmpty()) {
+    return {
+      type: actions.EMIT_ERROR,
+      payload: {
+        name: 'Settings Error',
+        message: 'You should select at least one of the sources.',
+        details: {},
+      },
+    };
+  }
+
   return (dispatch) =>
     fetch(`${SERVER_URL}/quiz`, {
       method: 'POST',
@@ -89,7 +111,27 @@ export function generate(settings) {
     .then(parse)
     .then((res) => {
       if (!res.success) {
-        throw new Error(res.message);
+        dispatch({
+          type: actions.EMIT_ERROR,
+          payload: {
+            name: 'Generator Runtime Error (code 1)',
+            message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+            details: { ...res },
+          },
+        });
+        return;
+      }
+
+      if (!res.questions.length) {
+        dispatch({
+          type: actions.EMIT_ERROR,
+          payload: {
+            name: 'Generator Runtime Error (code 2)',
+            message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+            details: {},
+          },
+        });
+        return;
       }
 
       dispatch({
@@ -101,9 +143,12 @@ export function generate(settings) {
       });
     })
     .catch((err) => dispatch({
-      type: actions.POPULATE_QUIZ,
-      payload: err,
-      error: true,
+      type: actions.EMIT_ERROR,
+      payload: {
+        name: 'Generator Runtime Error (code 3)',
+        message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+        details: err,
+      },
     }));
 }
 

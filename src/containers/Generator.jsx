@@ -1,14 +1,16 @@
-import { Record } from 'immutable';
+import { Record, List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
 import * as GeneratorActions from 'redux/actions/generator';
 import * as SettingsActions from 'redux/actions/settings';
+import * as ErrorActions from 'redux/actions/error';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Header from 'components/Header';
 import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';
+import ErrorPopup from 'components/ErrorPopup';
 import TargetSettings from 'components/settings/Target';
 import SourcesSettings from 'components/settings/Sources';
 import FormatSettings from 'components/settings/Format';
@@ -17,21 +19,25 @@ import AdvancedSettings from 'components/settings/Advanced';
 const mapStateToProps = (state) => ({
   settings: state.settings,
   resources: state.resources,
+  errors: state.errors,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   routeActions: bindActionCreators(routeActions, dispatch),
   generatorActions: bindActionCreators(GeneratorActions, dispatch),
   settingsActions: bindActionCreators(SettingsActions, dispatch),
+  errorActions: bindActionCreators(ErrorActions, dispatch),
 });
 
 class Generator extends Component {
   static propTypes = {
+    settings: PropTypes.instanceOf(Record).isRequired,
+    resources: PropTypes.instanceOf(Record).isRequired,
+    errors: PropTypes.instanceOf(List).isRequired,
     routeActions: PropTypes.object.isRequired,
     generatorActions: PropTypes.object.isRequired,
     settingsActions: PropTypes.object.isRequired,
-    settings: PropTypes.instanceOf(Record).isRequired,
-    resources: PropTypes.instanceOf(Record).isRequired,
+    errorActions: PropTypes.object.isRequired,
   };
 
   componentWillMount() {
@@ -48,9 +54,9 @@ class Generator extends Component {
 
   render() {
     const {
-      settingsActions: actions,
       settings,
       resources,
+      errors,
     } = this.props;
     const {
       updateMaterial,
@@ -59,12 +65,17 @@ class Generator extends Component {
       clearSources,
       updateFormat,
       updateAdvanced,
-    } = actions;
-    const lang = this.props.settings.target.material.get('lang') || '';
+    } = this.props.settingsActions;
+    const { dismissError } = this.props.errorActions;
+    const lang = settings.target.material.get('lang') || '';
     const preset = resources.presets.get(lang);
 
     return (
       <div>
+        <ErrorPopup
+          errors={errors}
+          dismissError={dismissError}
+        />
         <Header title="Settings" />
         <Content>
           <Toolbar>
@@ -74,6 +85,7 @@ class Generator extends Component {
               onTouchTap={this.onGenerate}
             />
           </Toolbar>
+          <p>* required</p>
           <TargetSettings
             materials={resources.materials}
             currentSettings={settings.target}

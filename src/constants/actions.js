@@ -12,5 +12,7 @@ export default constantMirror(
   'UPDATE_SOURCES',
   'UPDATE_FORMAT',
   'UPDATE_ADVANCED',
-  'CLEAR_ADVANCED'
+  'CLEAR_ADVANCED',
+  'EMIT_ERROR',
+  'DISMISS_ERROR'
 );

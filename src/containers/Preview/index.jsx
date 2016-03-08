@@ -1,9 +1,11 @@
-import { Record, Map } from 'immutable';
+import { Record, Map, List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
+import * as errorActions from 'redux/actions/error';
 import { verticalRLLangs } from 'constants/displaySettings';
+import ErrorPopup from 'components/ErrorPopup';
 import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';
 import Quiz from 'components/Quiz';
@@ -16,18 +18,22 @@ const mapStateToProps = (state) => ({
   settings: state.settings,
   quiz: state.quiz,
   presets: state.resources.presets,
+  errors: state.errors,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   routeActions: bindActionCreators(routeActions, dispatch),
+  errorActions: bindActionCreators(errorActions, dispatch),
 });
 
 class Preview extends Component {
   static propTypes = {
-    routeActions: PropTypes.object.isRequired,
     quiz: PropTypes.instanceOf(Record).isRequired,
     settings: PropTypes.instanceOf(Record).isRequired,
     presets: PropTypes.instanceOf(Map).isRequired,
+    errors: PropTypes.instanceOf(List).isRequired,
+    routeActions: PropTypes.object.isRequired,
+    errorActions: PropTypes.object.isRequired,
   };
 
   constructor() {
@@ -38,8 +44,7 @@ class Preview extends Component {
   }
 
   onCancel = () => {
-    const { push } = this.props.routeActions;
-    push('/generate');
+    this.props.routeActions.push('/generate');
   }
 
   onPrint = () => {
@@ -51,18 +56,28 @@ class Preview extends Component {
   }
 
   render() {
-    const { quiz } = this.props;
+    const {
+      quiz,
+      settings,
+      presets,
+      errors,
+    } = this.props;
+    const { dismissError } = this.props.errorActions;
     const isGenerating = quiz.questions.isEmpty();
-    const lang = this.props.settings.target.material.get('lang');
-    const preset = this.props.presets.get(lang) || {};
+    const lang = settings.target.material.get('lang');
+    const preset = presets.get(lang) || {};
     const wordRegExp =
-      this.props.settings.advanced.wordRegExp ||
+      settings.advanced.wordRegExp ||
       preset.wordRegExp ||
       '\\w';
     const mayVertical = verticalRLLangs.some((regExp) => regExp.test(lang));
 
     return (
       <div>
+        <ErrorPopup
+          errors={errors}
+          dismissError={dismissError}
+        />
         <Header className={CSS.header} title="Preview" />
         <Content>
           <Toolbar className={CSS.toolbar}>
