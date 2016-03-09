@@ -2,6 +2,10 @@
 
 ![screenshot.png](screenshot.png)
 
+[![Dependency Status](https://david-dm.org/nodaguti/word-quiz-generator-webapp.svg)](https://david-dm.org/nodaguti/word-quiz-generator-webapp)
+[![devDependency Status](https://david-dm.org/nodaguti/word-quiz-generator-webapp/dev-status.svg)](https://david-dm.org/nodaguti/word-quiz-generator-webapp#info=devDependencies)
+[![Code Climate](https://codeclimate.com/github/nodaguti/word-quiz-generator-webapp/badges/gpa.svg)](https://codeclimate.com/github/nodaguti/word-quiz-generator-webapp)
+
 A web application for generating a vocabulary quiz.
 
 Once you specify a test material, Online Word Quiz Generator then retrieves a sentence which includes one of the words/phrases in the material from existing source texts, and creates a "Write the definition" questions.
