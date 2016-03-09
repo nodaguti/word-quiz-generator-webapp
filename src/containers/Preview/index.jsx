@@ -2,7 +2,7 @@ import { Record, Map, List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { routeActions } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import * as errorActions from 'redux/actions/error';
 import { verticalRLLangs } from 'constants/displaySettings';
 import ErrorPopup from 'components/ErrorPopup';
@@ -22,7 +22,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  routeActions: bindActionCreators(routeActions, dispatch),
   errorActions: bindActionCreators(errorActions, dispatch),
 });
 
@@ -32,7 +31,6 @@ class Preview extends Component {
     settings: PropTypes.instanceOf(Record).isRequired,
     presets: PropTypes.instanceOf(Map).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
-    routeActions: PropTypes.object.isRequired,
     errorActions: PropTypes.object.isRequired,
   };
 
@@ -44,7 +42,7 @@ class Preview extends Component {
   }
 
   onCancel = () => {
-    this.props.routeActions.push('/generate');
+    browserHistory.push('/generate');
   }
 
   onPrint = () => {

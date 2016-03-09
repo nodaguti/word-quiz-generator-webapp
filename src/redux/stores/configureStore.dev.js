@@ -1,6 +1,4 @@
 import { compose, applyMiddleware, createStore } from 'redux';
-import { browserHistory } from 'react-router';
-import { syncHistory } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import createLogger from 'redux-logger';
@@ -32,11 +30,10 @@ const stateTransformer = (state) => {
 };
 
 export default function configureStore(initialState = {}) {
-  const history = syncHistory(browserHistory);
   const logger = createLogger({ stateTransformer });
   const createPersistentStore = compose(
     persistState(null, localStorageConfig),
-    applyMiddleware(thunk, history, logger)
+    applyMiddleware(thunk, logger)
   )(createStore);
 
   return createPersistentStore(rootReducer, initialState);

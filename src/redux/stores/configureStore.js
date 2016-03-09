@@ -1,6 +1,4 @@
 import { compose, applyMiddleware, createStore } from 'redux';
-import { browserHistory } from 'react-router';
-import { syncHistory } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import rootReducer from 'redux/reducers';
@@ -23,10 +21,9 @@ const localStorageConfig = {
 };
 
 export default function configureStore(initialState = {}) {
-  const history = syncHistory(browserHistory);
   const createPersistentStore = compose(
     persistState(null, localStorageConfig),
-    applyMiddleware(thunk, history)
+    applyMiddleware(thunk)
   )(createStore);
 
   return createPersistentStore(rootReducer, initialState);

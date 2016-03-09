@@ -2,7 +2,7 @@ import { Record, List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { routeActions } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import * as GeneratorActions from 'redux/actions/generator';
 import * as SettingsActions from 'redux/actions/settings';
 import * as ErrorActions from 'redux/actions/error';
@@ -23,7 +23,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  routeActions: bindActionCreators(routeActions, dispatch),
   generatorActions: bindActionCreators(GeneratorActions, dispatch),
   settingsActions: bindActionCreators(SettingsActions, dispatch),
   errorActions: bindActionCreators(ErrorActions, dispatch),
@@ -34,7 +33,6 @@ class Generator extends Component {
     settings: PropTypes.instanceOf(Record).isRequired,
     resources: PropTypes.instanceOf(Record).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
-    routeActions: PropTypes.object.isRequired,
     generatorActions: PropTypes.object.isRequired,
     settingsActions: PropTypes.object.isRequired,
     errorActions: PropTypes.object.isRequired,
@@ -48,7 +46,7 @@ class Generator extends Component {
 
   onGenerate = () => {
     this.props.generatorActions.clearQuiz();
-    this.props.routeActions.push('/preview');
+    browserHistory.push('/preview');
     this.props.generatorActions.generate(this.props.settings);
   }
 
