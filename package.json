@@ -1,7 +1,7 @@
 {
   "name": "word-quiz-generator-webapp",
   "description": "Online Word Quiz Generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "nodaguti",
   "main": "lib/server.js",
   "bugs": "https://github.com/nodaguti/word-quiz-generator-webapp/issues",
