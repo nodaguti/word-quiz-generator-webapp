@@ -58,7 +58,7 @@
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "eslint": "~2.2.0",
-    "eslint-config-airbnb": "^6.1.0",
+    "eslint-config-airbnb": "~6.1.0",
     "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "kneden": "^1.0.2",
