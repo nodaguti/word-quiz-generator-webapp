@@ -3,6 +3,7 @@
   "description": "Online Word Quiz Generator",
   "version": "1.0.0",
   "author": "nodaguti",
+  "private": true,
   "main": "lib/server.js",
   "bugs": "https://github.com/nodaguti/word-quiz-generator-webapp/issues",
   "engines": {
