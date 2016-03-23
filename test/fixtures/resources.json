@@ -1,0 +1,26 @@
+{
+  "materials": [
+    {
+      "id": "aaa",
+      "name": "bbb",
+      "lang": "en",
+      "sections": "1-2",
+      "path": "./materials/material.csv"
+    },
+    {
+      "id": "ccc",
+      "name": "ddd",
+      "lang": "ojp",
+      "sections": "1-2",
+      "path": "./materials/dummy.csv"
+    }
+  ],
+  "sources": [
+    {
+      "id": "aaa",
+      "name": "bbb",
+      "lang": "en",
+      "path": "./sources/source.txt"
+    }
+  ]
+}

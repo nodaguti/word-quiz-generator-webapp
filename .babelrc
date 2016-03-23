@@ -6,6 +6,6 @@
   ],
   "plugins": [
     "transform-runtime",
-    "kneden",
+    "babel-plugin-espower"
   ]
 }

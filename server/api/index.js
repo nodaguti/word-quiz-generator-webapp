@@ -4,7 +4,7 @@ import QuizGenerator, { RegExpPresets } from 'word-quiz-generator';
 import path from 'path';
 import _ from 'lodash';
 
-function loadResources(_path) {
+export function loadResources(_path) {
   const root = path.dirname(_path);
   const resources = require(_path);
 
