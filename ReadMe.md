@@ -2,6 +2,7 @@
 
 ![screenshot.png](screenshot.png)
 
+[![Build Status](https://travis-ci.org/nodaguti/word-quiz-generator-webapp.svg?branch=master)](https://travis-ci.org/nodaguti/word-quiz-generator-webapp)
 [![Dependency Status](https://david-dm.org/nodaguti/word-quiz-generator-webapp.svg)](https://david-dm.org/nodaguti/word-quiz-generator-webapp)
 [![devDependency Status](https://david-dm.org/nodaguti/word-quiz-generator-webapp/dev-status.svg)](https://david-dm.org/nodaguti/word-quiz-generator-webapp#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/nodaguti/word-quiz-generator-webapp/badges/gpa.svg)](https://codeclimate.com/github/nodaguti/word-quiz-generator-webapp)
