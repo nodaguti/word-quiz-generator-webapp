@@ -94,7 +94,7 @@
     "build:client": "webpack --config webpack.config.js --progress --display-error-details",
     "start": "forever -m 1 start lib/server.js",
     "stop": "forever stop lib/server.js",
-    "lint": "eslint server/** src/**",
+    "lint": "eslint server/** src/** test/**/*.js",
     "test": "npm-run-all lint test:server test:e2e",
     "test:server": "cross-env RESOURCES=test/fixtures/resources.json mocha test/server",
     "test:e2e": "cross-env RESOURCES=test/fixtures/resources.json npm-run-all test:e2e:*",
