@@ -10,7 +10,7 @@ import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';
 import Quiz from 'components/Quiz';
 import RaisedButton from 'material-ui/lib/raised-button';
-import CircularProgress from 'material-ui/lib/Circular-progress';
+import CircularProgress from 'material-ui/lib/circular-progress';
 import Header from 'components/Header';
 import CSS from './index.css';
 
