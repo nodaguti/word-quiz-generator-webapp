@@ -1,7 +1,5 @@
 import { List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
-import findKey from 'lodash/findKey';
-import { wordDivider } from 'constants/displaySettings';
 import Question from 'components/Question';
 import CSS from './index.css';
 import VerticalCSS from './vertical-rl.css';
@@ -12,8 +10,6 @@ export default class Quiz extends Component {
     instruction: PropTypes.string,
     answerKeysLabel: PropTypes.string,
     questions: PropTypes.instanceOf(List).isRequired,
-    lang: PropTypes.string.isRequired,
-    wordRegExp: PropTypes.string.isRequired,
     vertical: PropTypes.bool.isRequired,
   };
 
@@ -34,14 +30,8 @@ export default class Quiz extends Component {
       instruction,
       answerKeysLabel,
       questions,
-      lang,
-      wordRegExp,
       vertical,
     } = this.props;
-
-    const divider = findKey(wordDivider, (langs) =>
-      langs.some((re) => re.test(lang))
-    );
 
     return (
       <div className={`${CSS.quiz} ${vertical ? VerticalCSS.quiz : ''}`}>
@@ -52,11 +42,7 @@ export default class Quiz extends Component {
             questions
               .toSeq()
               .map((question) => (
-                <Question
-                  question={question}
-                  wordRegExp={wordRegExp}
-                  divider={divider}
-                />
+                <Question question={question} />
               ))
               .toArray()
           }

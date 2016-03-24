@@ -1,4 +1,4 @@
-import { Record, Map, List } from 'immutable';
+import { Record, List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,7 +17,6 @@ import CSS from './index.css';
 const mapStateToProps = (state) => ({
   settings: state.settings,
   quiz: state.quiz,
-  presets: state.resources.presets,
   errors: state.errors,
 });
 
@@ -29,7 +28,6 @@ class Preview extends Component {
   static propTypes = {
     quiz: PropTypes.instanceOf(Record).isRequired,
     settings: PropTypes.instanceOf(Record).isRequired,
-    presets: PropTypes.instanceOf(Map).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
     errorActions: PropTypes.object.isRequired,
   };
@@ -57,17 +55,11 @@ class Preview extends Component {
     const {
       quiz,
       settings,
-      presets,
       errors,
     } = this.props;
     const { dismissError } = this.props.errorActions;
     const isGenerating = quiz.questions.isEmpty();
     const lang = settings.target.material.get('lang');
-    const preset = presets.get(lang) || {};
-    const wordRegExp =
-      settings.advanced.wordRegExp ||
-      preset.wordRegExp ||
-      '\\w';
     const mayVertical = verticalRLLangs.some((regExp) => regExp.test(lang));
 
     return (
@@ -101,8 +93,6 @@ class Preview extends Component {
               <CircularProgress /> :
               <Quiz
                 {...quiz.toObject()}
-                lang={lang}
-                wordRegExp={wordRegExp}
                 vertical={this.state.vertical}
               />
           }
