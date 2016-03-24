@@ -88,9 +88,10 @@
   "private": true,
   "repository": "nodaguti/word-quiz-generator-webapp",
   "scripts": {
-    "build": "npm-run-all build:server build:client",
+    "build": "npm-run-all clean build:server build:client",
     "build:client": "webpack --config webpack.config.js --progress --display-error-details",
     "build:server": "babel server --out-dir lib --source-maps",
+    "clean": "rimraf assets lib",
     "lint": "eslint server/** src/** test/**/*.js",
     "start": "forever start lib/server.js",
     "stop": "forever stop lib/server.js",
