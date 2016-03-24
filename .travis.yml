@@ -2,6 +2,14 @@ sudo: false
 language: node_js
 node_js:
   - 5
+addons:
+  apt:
+    packages:
+      - xvfb
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - npm install
 notification:
   slack:
     secure: "Nx/4ySQbxzXFX1xQEus2uKBtLpufBCQUc2h2bJs5h8tWe/vZ14p4RAsmIG1t7UKFeUgRu4oxNmpFwRZrAe3Fn5AKzv86YFqc5qimbWOqjEHmSSDtrvB/qFCRSJO2iVZ3sfiGqeJPUCz26BOHr8ziTu2g1+KM2j9t4oe53mkgDvM9xpdjaqTF0G+rFhJZJqZeuZ1SUriYyeStLbmQMldILX6SqjHVrUj9n/lET7/VIlQCFaDaRceLfQ6f5uxzS+li3fkkav2OE0S8WYPJhetpakGlnuLW04VBwH2gQJLbfeWneulPt1s9CMHkZCDJc44CVpm5x1veXttGcKmix/ohnYqSGKBMJ01/19m1W413XFhADinhbZlCkRwOXG+0qJJzpePCGZAelYYjcpsllBfD8wuxF6T0sxgn8etY+kgs2Xq16SpMobwJNgE8YEeMUauW2x71AfH1l/2xrnjM1sNdeLh2h5COKrqrzhPRUeOiMqxfFYd7l/rpKmJk1HVFPBO6hoCQbbjt1jHa3UHoFoRpGvpWHxAKH7tuPdA3lm33F4/L5QGC07lWX2qOSxepf2dNWzIojVv2mdsCxtQjlYzY8qU2lUIqBbazjSniDQCdZBvOT7RleN77d9W8CAOp2SUbRhGCFzswSD/dQ2y9dSKugBdIrVEb4LrRJuklSBjOeJM="
