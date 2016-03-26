@@ -30,7 +30,7 @@ function buildSafeResources(resources) {
   safeResources.materials.forEach((item) => delete item.path);
   safeResources.sources.forEach((item) => delete item.path);
   safeResources.presets = JSON.parse(
-    JSON.stringify(presets, (k, v) => _.isRegExp(v) ? v.source : v)
+    JSON.stringify(presets, (k, v) => (_.isRegExp(v) ? v.source : v))
   );
 
   return safeResources;
