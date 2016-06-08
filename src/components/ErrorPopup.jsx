@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
-import Dialog from 'material-ui/lib/dialog';
-import FlatButton from 'material-ui/lib/flat-button';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class ErrorPopup extends Component {
   static propTypes = {
@@ -58,7 +58,7 @@ export default class ErrorPopup extends Component {
         onRequestClose={this.handleClose}
       >
         <p>{latestError.message}</p>
-        { isDev ? this.renderDetails(latestError.details) : ''}
+        {isDev ? this.renderDetails(latestError.details) : ''}
       </Dialog>
     );
   }

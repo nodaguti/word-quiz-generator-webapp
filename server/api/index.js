@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 export function loadResources(_path) {
   const root = path.dirname(_path);
-  const resources = require(_path);
+  const resources = require(_path); // eslint-disable-line global-require
 
   resources.materials.forEach((item) => {
     item.path = path.resolve(root, item.path);

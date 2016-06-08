@@ -1,7 +1,7 @@
 import { Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
-import TextField from 'material-ui/lib/text-field';
+import TextField from 'material-ui/TextField';
 import { translate } from 'react-i18next';
 
 class FormatSettings extends Component {

@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 import * as GeneratorActions from 'redux/actions/generator';
 import * as SettingsActions from 'redux/actions/settings';
 import * as ErrorActions from 'redux/actions/error';
-import RaisedButton from 'material-ui/lib/raised-button';
+import RaisedButton from 'material-ui/RaisedButton';
 import Header from 'components/Header';
 import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';

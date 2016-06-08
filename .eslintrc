@@ -4,5 +4,8 @@
   "rules": {
     // This rule causes no rule definition error.
     "react/prefer-stateless-function": 0
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }

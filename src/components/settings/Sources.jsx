@@ -1,12 +1,12 @@
 import { List } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
-import Table from 'material-ui/lib/table/table';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
+import Table from 'material-ui/Table/Table';
+import TableHeader from 'material-ui/Table/TableHeader';
+import TableHeaderColumn from 'material-ui/Table/TableHeaderColumn';
+import TableRow from 'material-ui/Table/TableRow';
+import TableRowColumn from 'material-ui/Table/TableRowColumn';
+import TableBody from 'material-ui/Table/TableBody';
 import { translate } from 'react-i18next';
 
 class SourcesSettings extends Component {

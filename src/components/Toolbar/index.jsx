@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import Toolbar from 'material-ui/lib/toolbar/toolbar';
-import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
+import Toolbar from 'material-ui/Toolbar/Toolbar';
+import ToolbarGroup from 'material-ui/Toolbar/ToolbarGroup';
 import CSS from './index.css';
 
 export default class SettingsPanel extends Component {

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import Card from 'material-ui/lib/card/card';
-import CardTitle from 'material-ui/lib/card/card-title';
-import CardText from 'material-ui/lib/card/card-text';
+import Card from 'material-ui/Card/Card';
+import CardTitle from 'material-ui/Card/CardTitle';
+import CardText from 'material-ui/Card/CardText';
 import CSS from './index.css';
 
 export default class SettingsPanel extends Component {

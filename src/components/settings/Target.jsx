@@ -2,9 +2,9 @@ import { List, Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
 import MaterialDetails from 'components/MaterialDetails';
-import SelectField from 'material-ui/lib/select-field';
-import MenuItem from 'material-ui/lib/menus/menu-item';
-import TextField from 'material-ui/lib/text-field';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import TextField from 'material-ui/TextField';
 import { translate } from 'react-i18next';
 
 class TargetSettings extends Component {
