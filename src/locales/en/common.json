@@ -1,0 +1,74 @@
+{
+  "labels": {
+    "generate": "Generate",
+    "cancel": "Cancel",
+    "print": "Print",
+    "toggleVerticalMode": "Toggle Vertical Mode",
+    "visitHomepage": "Visit Homepage",
+    "target": "Target",
+    "material": "Material",
+    "sections": "Sections",
+    "wordLang": "Word/Phrase Language",
+    "ansLang": "Answer Language",
+    "aboutMaterial": "About This Material",
+    "format": "Format",
+    "quizTitle": "Quiz Title",
+    "size": "Size",
+    "instruction": "Instruction",
+    "titleOfAnswerKeys": "Title of Answer Keys",
+    "sources": "Sources",
+    "name": "Name",
+    "advanced": "Advanced",
+    "sentenceSeparatorRegExp": "Regular Expression of a Sentence Separator",
+    "clauseRegExp": "Regular Expression of a Clause",
+    "wordRegExp": "Regular Expression of a Word",
+    "wordBoundaryRegExp": "Regular Expression of a Word Boundary",
+    "abbrRegExp": "Regular Expression of an abbreviation mark"
+  },
+  "descriptions": {
+    "required": "*: The input fields with '*' are required.",
+    "size": "The number of questions the quiz will have.",
+    "instruction": "e.g. Write down the meaning of underlined phrases.",
+    "titleOfAnswerKeys": "e.g. Answer Keys",
+    "advanced": "These options are for advanced users. Please keep them untouched unless you know what you are doing."
+  },
+  "errors": {
+    "unexpected": {
+      "name": "Unexpected Error",
+      "message": "Unexpected error has occurred. Please reload the page. Your data is automatically saved to your computer, and may be recovered after reloading."
+    },
+    "failToLoadMaterials": {
+      "name": "Load Error",
+      "message": "Failed to fetch the materials list. Please contact with the server administrator."
+    },
+    "failToLoadSources": {
+      "name": "Load Error",
+      "message": "Failed to fetch the sources list. Please contact with the server administrator."
+    },
+    "failToLoadPresets": {
+      "name": "Load Error",
+      "message": "Failed to fetch the presets list. Please contact with the server administrator."
+    },
+    "noSelectedSources": {
+      "name": "Invalid Settings",
+      "message": "You should select at least one of the sources."
+    },
+    "brokenSuccessFlag": {
+      "name": "Generator Runtime Error (-1)",
+      "message": "Failed to generate questions. Please go back to the settings page and check your configurations."
+    },
+    "noGeneratedQuestions": {
+      "name": "Generator Runtime Error (-2)",
+      "message": "Failed to generate questions. Please go back to the settings page and check your configurations."
+    },
+    "unknownGeneratorError": {
+      "name": "Generator Runtime Error (-3)",
+      "message": "Failed to generate questions. Please go back to the settings page and check your configurations."
+    }
+  },
+  "langs": {
+    "en": "English",
+    "ja": "Japanese",
+    "ojp": "Old Japanese"
+  }
+}

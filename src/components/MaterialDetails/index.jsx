@@ -5,9 +5,10 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import CardText from 'material-ui/lib/card/card-text';
 import CardActions from 'material-ui/lib/card/card-actions';
 import FlatButton from 'material-ui/lib/flat-button';
+import { translate } from 'react-i18next';
 import CSS from './index.css';
 
-export default class MaterialDetails extends Component {
+class MaterialDetails extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     lang: PropTypes.string.isRequired,
@@ -15,6 +16,7 @@ export default class MaterialDetails extends Component {
     coverImg: PropTypes.string,
     url: PropTypes.string,
     description: PropTypes.string.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   createHeader() {
@@ -42,7 +44,10 @@ export default class MaterialDetails extends Component {
   }
 
   createActions() {
-    const { url } = this.props;
+    const {
+      url,
+      t,
+    } = this.props;
 
     if (!url) {
       return null;
@@ -53,7 +58,7 @@ export default class MaterialDetails extends Component {
         <FlatButton
           linkButton
           primary
-          label="Visit Homepage"
+          label={t('labels.visitHomepage')}
           href={url}
         />
       </CardActions>
@@ -65,19 +70,20 @@ export default class MaterialDetails extends Component {
       lang,
       ansLang,
       description,
+      t,
     } = this.props;
 
     return (
       <Card style={{ width: '70%', margin: '0 auto' }}>
         {this.createHeader()}
         <CardText>
-          <h3>Word/Phrase Language</h3>
-          <p>{lang}</p>
+          <h3>{t('labels.wordLang')}</h3>
+          <p>{t(`langs.${lang}`)}</p>
 
-          <h3>Answer Language</h3>
-          <p>{ansLang}</p>
+          <h3>{t('labels.ansLang')}</h3>
+          <p>{t(`langs.${ansLang}`)}</p>
 
-          <h3>About This Material</h3>
+          <h3>{t('labels.aboutMaterial')}</h3>
           <p>{description}</p>
         </CardText>
         {this.createActions()}
@@ -85,3 +91,5 @@ export default class MaterialDetails extends Component {
     );
   }
 }
+
+export default translate()(MaterialDetails);

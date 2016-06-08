@@ -7,14 +7,16 @@ import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
 import TableRow from 'material-ui/lib/table/table-row';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import { translate } from 'react-i18next';
 
-export default class SourcesSettings extends Component {
+class SourcesSettings extends Component {
   static propTypes = {
     sources: PropTypes.instanceOf(List).isRequired,
     filter: PropTypes.string.isRequired,
     currentSettings: PropTypes.instanceOf(List).isRequired,
     updateSources: PropTypes.func.isRequired,
     clearSources: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   onRowSelection = (selectedRows) => {
@@ -77,8 +79,10 @@ export default class SourcesSettings extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
-      <Panel title="Sources">
+      <Panel title={t('labels.sources')}>
         <Table
           fixedHeader
           selectable
@@ -87,7 +91,7 @@ export default class SourcesSettings extends Component {
         >
           <TableHeader enableSelectAll>
             <TableRow>
-              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>{t('labels.name')}</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -101,3 +105,5 @@ export default class SourcesSettings extends Component {
     );
   }
 }
+
+export default translate()(SourcesSettings);

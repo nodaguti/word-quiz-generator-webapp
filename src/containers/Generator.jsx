@@ -15,6 +15,7 @@ import TargetSettings from 'components/settings/Target';
 import SourcesSettings from 'components/settings/Sources';
 import FormatSettings from 'components/settings/Format';
 import AdvancedSettings from 'components/settings/Advanced';
+import { translate } from 'react-i18next';
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
@@ -36,6 +37,7 @@ class Generator extends Component {
     generatorActions: PropTypes.object.isRequired,
     settingsActions: PropTypes.object.isRequired,
     errorActions: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
@@ -55,6 +57,7 @@ class Generator extends Component {
       settings,
       resources,
       errors,
+      t,
     } = this.props;
     const {
       updateMaterial,
@@ -79,11 +82,11 @@ class Generator extends Component {
           <Toolbar>
             <RaisedButton
               primary
-              label="Generate"
+              label={t('labels.generate')}
               onTouchTap={this.onGenerate}
             />
           </Toolbar>
-          <p>* required</p>
+          <p>{t('descriptions.required')}</p>
           <TargetSettings
             materials={resources.materials}
             currentSettings={settings.target}
@@ -115,4 +118,8 @@ class Generator extends Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Generator);
+)(
+  translate()(
+    Generator
+  )
+);

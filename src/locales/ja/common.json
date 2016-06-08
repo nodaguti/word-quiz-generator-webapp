@@ -1,0 +1,74 @@
+{
+  "labels": {
+    "generate": "問題作成",
+    "cancel": "キャンセル",
+    "print": "印刷",
+    "toggleVerticalMode": "縦書き/横書き",
+    "visitHomepage": "サイトを見る",
+    "target": "テスト範囲",
+    "material": "単語帳",
+    "sections": "出題範囲",
+    "wordLang": "単語の言語",
+    "ansLang": "解答の言語",
+    "aboutMaterial": "この単語帳について",
+    "format": "様式",
+    "quizTitle": "テストのタイトル",
+    "size": "問題数",
+    "instruction": "指示文",
+    "titleOfAnswerKeys": "模範解答のタイトル",
+    "sources": "問題文の引用元",
+    "name": "タイトル",
+    "advanced": "高度な設定",
+    "sentenceSeparatorRegExp": "文を区切るための正規表現",
+    "clauseRegExp": "節を表す正規表現",
+    "wordRegExp": "単語を表す正規表現",
+    "wordBoundaryRegExp": "単語の境界を表す正規表現",
+    "abbrRegExp": "省略記号を表す正規表現"
+  },
+  "descriptions": {
+    "required": "*: この記号が付いている項目は必須項目です．",
+    "size": "生成されるテストの問題数を指定します",
+    "instruction": "例) 下線部の単語の意味を書け．",
+    "titleOfAnswerKeys": "例) 解答",
+    "advanced": "以下の項目は上級者ユーザー向けです．項目の意味がわからない場合は変更しないでください．"
+  },
+  "errors": {
+    "unexpected": {
+      "name": "不明なエラー",
+      "message": "予期しないエラーが発生しました．ページを再読込してください．データはお使いの PC に自動的に保存されており，再読み込み後に自動的に復元されます．"
+    },
+    "failToLoadMaterials": {
+      "name": "読み込みエラー",
+      "message": "単語帳リストの読み込みに失敗しました．サーバ管理者へご連絡ください．"
+    },
+    "failToLoadSources": {
+      "name": "読み込みエラー",
+      "message": "文章リストの読み込みに失敗しました．サーバ管理者へご連絡ください．"
+    },
+    "failToLoadPresets": {
+      "name": "読み込みエラー",
+      "message": "プリセットの読み込みに失敗しました．サーバ管理者へご連絡ください．"
+    },
+    "noSelectedSources": {
+      "name": "設定エラー",
+      "message": "1つ以上の問題文引用元を選択してください．"
+    },
+    "brokenSuccessFlag": {
+      "name": "問題文生成エラー (-1)",
+      "message": "テストの生成に失敗しました．設定ページに戻り，設定を再確認してください．"
+    },
+    "noGeneratedQuestions": {
+      "name": "問題文生成エラー (-2)",
+      "message": "テストの生成に失敗しました．設定ページに戻り，設定を再確認してください．"
+    },
+    "unknownGeneratorError": {
+      "name": "問題文生成エラー (-3)",
+      "message": "テストの生成に失敗しました．設定ページに戻り，設定を再確認してください．"
+    }
+  },
+  "langs": {
+    "en": "英語",
+    "ja": "日本語",
+    "ojp": "古文"
+  }
+}

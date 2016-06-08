@@ -5,13 +5,15 @@ import MaterialDetails from 'components/MaterialDetails';
 import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import TextField from 'material-ui/lib/text-field';
+import { translate } from 'react-i18next';
 
-export default class TargetSettings extends Component {
+class TargetSettings extends Component {
   static propTypes = {
     materials: PropTypes.instanceOf(List).isRequired,
     currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateMaterial: PropTypes.func.isRequired,
     updateSections: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   onChangeMaterial = (event, index, value) => {
@@ -68,7 +70,10 @@ export default class TargetSettings extends Component {
   }
 
   render() {
-    const { currentSettings } = this.props;
+    const {
+      currentSettings,
+      t,
+    } = this.props;
     const currentMaterial = currentSettings.material;
     const {
       id: materialId,
@@ -77,23 +82,23 @@ export default class TargetSettings extends Component {
     const currentSections = currentSettings.sections;
 
     return (
-      <Panel title="Target">
+      <Panel title={t('labels.target')}>
         <SelectField
           fullWidth
-          floatingLabelText="Material"
+          floatingLabelText={t('labels.material')}
           value={materialId}
           onChange={this.onChangeMaterial}
         >
           {this.renderMaterialList()}
         </SelectField>
         <br />
-        <MaterialDetails
-          {...currentMaterial.toObject()}
-        />
+        {
+          materialId ? <MaterialDetails {...currentMaterial.toObject()} /> : ''
+        }
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Sections *"
+          floatingLabelText={`${t('labels.sections')} *`}
           hintText={materialSections}
           defaultValue={currentSections}
           onBlur={this.onBlurSections}
@@ -102,3 +107,5 @@ export default class TargetSettings extends Component {
     );
   }
 }
+
+export default translate()(TargetSettings);

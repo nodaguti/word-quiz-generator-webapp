@@ -2,13 +2,15 @@ import { Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
 import TextField from 'material-ui/lib/text-field';
+import { translate } from 'react-i18next';
 import CSS from './settings.css';
 
-export default class AdvancedSettings extends Component {
+class AdvancedSettings extends Component {
   static propTypes = {
     preset: PropTypes.object,
     currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateAdvanced: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   onBlurSentenceSeparator = (event) => {
@@ -40,6 +42,7 @@ export default class AdvancedSettings extends Component {
     const {
       preset = {},
       currentSettings,
+      t,
     } = this.props;
     const {
       sentenceSeparator,
@@ -50,14 +53,13 @@ export default class AdvancedSettings extends Component {
     } = currentSettings.toObject();
 
     return (
-      <Panel title="Advanced" expandable>
+      <Panel title={t('labels.advanced')} expandable>
         <p>
-          These options are for advanced users.
-          Please keep them untouched unless you know what you are doing.
+          {t('descriptions.advanced')}
         </p>
         <TextField
           fullWidth
-          floatingLabelText="Regular expression of a sentence separator"
+          floatingLabelText={t('labels.sentenceSeparatorRegExp')}
           hintText={preset.sentenceSeparator}
           defaultValue={sentenceSeparator}
           className={CSS.codeField}
@@ -66,7 +68,7 @@ export default class AdvancedSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Regular expression of a clause"
+          floatingLabelText={t('labels.clauseRegExp')}
           hintText={preset.clauseRegExp}
           defaultValue={clauseRegExp}
           className={CSS.codeField}
@@ -75,7 +77,7 @@ export default class AdvancedSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Regular expression of a word"
+          floatingLabelText={t('labels.wordRegExp')}
           hintText={preset.wordRegExp}
           defaultValue={wordRegExp}
           className={CSS.codeField}
@@ -84,7 +86,7 @@ export default class AdvancedSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Regular expression of a word boundary"
+          floatingLabelText={t('labels.wordBoundaryRegExp')}
           hintText={preset.wordBoundaryRegExp}
           defaultValue={wordBoundaryRegExp}
           className={CSS.codeField}
@@ -93,7 +95,7 @@ export default class AdvancedSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Regular expression of a abbreviation mark"
+          floatingLabelText={t('labels.abbrRegExp')}
           hintText={preset.abbrRegExp}
           defaultValue={abbrRegExp}
           className={CSS.codeField}
@@ -103,3 +105,5 @@ export default class AdvancedSettings extends Component {
     );
   }
 }
+
+export default translate()(AdvancedSettings);

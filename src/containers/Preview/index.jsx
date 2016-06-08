@@ -12,6 +12,7 @@ import Quiz from 'components/Quiz';
 import RaisedButton from 'material-ui/lib/raised-button';
 import CircularProgress from 'material-ui/lib/circular-progress';
 import Header from 'components/Header';
+import { translate } from 'react-i18next';
 import CSS from './index.css';
 
 const mapStateToProps = (state) => ({
@@ -30,6 +31,7 @@ class Preview extends Component {
     settings: PropTypes.instanceOf(Record).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
     errorActions: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   constructor() {
@@ -56,6 +58,7 @@ class Preview extends Component {
       quiz,
       settings,
       errors,
+      t,
     } = this.props;
     const { dismissError } = this.props.errorActions;
     const isGenerating = quiz.questions.isEmpty();
@@ -72,18 +75,18 @@ class Preview extends Component {
         <Content>
           <Toolbar className={CSS.toolbar}>
             <RaisedButton
-              label="Cancel"
+              label={t('labels.cancel')}
               onTouchTap={this.onCancel}
             />
             <RaisedButton
               primary
-              label="Print"
+              label={t('labels.print')}
               onTouchTap={this.onPrint}
             />
             {
               mayVertical ?
                 <RaisedButton
-                  label="Toggle Vertical Mode"
+                  label={t('labels.toggleVerticalMode')}
                   onTouchTap={this.toggleVerticalMode}
                 /> : ''
             }
@@ -105,4 +108,8 @@ class Preview extends Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Preview);
+)(
+  translate()(
+    Preview
+  )
+);

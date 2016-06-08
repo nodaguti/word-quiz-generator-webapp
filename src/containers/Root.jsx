@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { browserHistory, Router } from 'react-router';
 import routes from 'routes';
-import './global.css';
+import 'global.css';
 
 export default class Root extends Component {
   static propTypes = {

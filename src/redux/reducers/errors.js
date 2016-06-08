@@ -1,10 +1,10 @@
 import camelCase from 'camel-case';
 import { Record, List } from 'immutable';
+import i18n from 'i18n';
 
 const ImmutableError = new Record({
-  name: 'Unexpected Error',
-  // eslint-disable-next-line max-len
-  message: 'Unexpected error has occurred. Please reload the page. Your data is automatically saved to your computer, and may be recovered after reloading.',
+  name: i18n.t('errors.unexpected.name'),
+  message: i18n.t('errors.unexpected.message'),
   details: {
     name: '',
     message: '',

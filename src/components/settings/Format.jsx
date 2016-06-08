@@ -2,11 +2,13 @@ import { Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
 import TextField from 'material-ui/lib/text-field';
+import { translate } from 'react-i18next';
 
-export default class FormatSettings extends Component {
+class FormatSettings extends Component {
   static propTypes = {
     currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateFormat: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired,
   };
 
   onBlurTitle = (event) => {
@@ -30,7 +32,10 @@ export default class FormatSettings extends Component {
   }
 
   render() {
-    const { currentSettings } = this.props;
+    const {
+      currentSettings,
+      t,
+    } = this.props;
     const {
       title,
       size_: size,
@@ -39,34 +44,34 @@ export default class FormatSettings extends Component {
     } = currentSettings.toObject();
 
     return (
-      <Panel title="Format">
+      <Panel title={t('labels.format')}>
         <TextField
           fullWidth
-          floatingLabelText="Quiz Title"
+          floatingLabelText={t('labels.quizTitle')}
           defaultValue={title}
           onBlur={this.onBlurTitle}
         />
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Size *"
-          hintText="The number of questions the quiz will have"
+          floatingLabelText={`${t('labels.size')} *`}
+          hintText={t('descriptions.size')}
           defaultValue={size || ''}
           onBlur={this.onBlurSize}
         />
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Instruction"
-          hintText="e.g. Write down the meaning of underlined phrases."
+          floatingLabelText={t('labels.instruction')}
+          hintText={t('descriptions.instruction')}
           defaultValue={instruction}
           onBlur={this.onBlurInstruction}
         />
         <br />
         <TextField
           fullWidth
-          floatingLabelText="Title of Answer Keys Section"
-          hintText="e.g. Answer Keys"
+          floatingLabelText={t('labels.titleOfAnswerKeys')}
+          hintText={t('descriptions.titleOfAnswerKeys')}
           defaultValue={answerKeysLabel}
           onBlur={this.onBlurLabel}
         />
@@ -74,3 +79,5 @@ export default class FormatSettings extends Component {
     );
   }
 }
+
+export default translate()(FormatSettings);

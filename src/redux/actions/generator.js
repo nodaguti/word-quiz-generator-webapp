@@ -2,6 +2,7 @@
 import 'isomorphic-fetch';
 import checkStatus from 'fetch-check-http-status';
 import actions from 'constants/actions';
+import i18n from 'i18n';
 
 const SERVER_URL = '/api';
 const parse = (res) => res.json();
@@ -19,8 +20,8 @@ export function fetchAllMaterials() {
     .catch((err) => dispatch({
       type: actions.EMIT_ERROR,
       payload: {
-        name: 'Load Error',
-        message: 'Failed to fetch the materials list. Please contact with the server administrator.',
+        name: i18n.t('errors.failToLoadMaterials.name'),
+        message: i18n.t('errors.failToLoadMaterials.message'),
         details: err,
       },
     }));
@@ -40,8 +41,8 @@ export function fetchAllSources() {
     .catch((err) => dispatch({
       type: actions.EMIT_ERROR,
       payload: {
-        name: 'Load Error',
-        message: 'Failed to fetch the sources list. Please contact with the server administrator.',
+        name: i18n.t('errors.failToLoadSources.name'),
+        message: i18n.t('errors.failToLoadSources.message'),
         details: err,
       },
     }));
@@ -61,8 +62,8 @@ export function fetchAllPresets() {
     .catch((err) => dispatch({
       type: actions.EMIT_ERROR,
       payload: {
-        name: 'Load Error',
-        message: 'Failed to fetch the presets list. Please contact with the server administrator.',
+        name: i18n.t('errors.failToLoadPresets.name'),
+        message: i18n.t('errors.failToLoadPresets.message'),
         details: err,
       },
     }));
@@ -91,8 +92,8 @@ export function generate(settings) {
     return {
       type: actions.EMIT_ERROR,
       payload: {
-        name: 'Settings Error',
-        message: 'You should select at least one of the sources.',
+        name: i18n.t('errors.noSelectedSources.name'),
+        message: i18n.t('errors.noSelectedSources.message'),
         details: {},
       },
     };
@@ -114,8 +115,8 @@ export function generate(settings) {
         dispatch({
           type: actions.EMIT_ERROR,
           payload: {
-            name: 'Generator Runtime Error (code 1)',
-            message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+            name: i18n.t('errors.brokenSuccessFlag.name'),
+            message: i18n.t('errors.brokenSuccessFlag.message'),
             details: { ...res },
           },
         });
@@ -126,8 +127,8 @@ export function generate(settings) {
         dispatch({
           type: actions.EMIT_ERROR,
           payload: {
-            name: 'Generator Runtime Error (code 2)',
-            message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+            name: i18n.t('errors.noGeneratedQuestions.name'),
+            message: i18n.t('errors.noGeneratedQuestions.message'),
             details: {},
           },
         });
@@ -145,8 +146,8 @@ export function generate(settings) {
     .catch((err) => dispatch({
       type: actions.EMIT_ERROR,
       payload: {
-        name: 'Generator Runtime Error (code 3)',
-        message: 'Failed to generate questions. Please go back to the settings page and check your configurations.',
+        name: i18n.t('errors.unknownGeneratorError.name'),
+        message: i18n.t('errors.unknownGeneratorError.message'),
         details: err,
       },
     }));
