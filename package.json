@@ -99,7 +99,7 @@
     "build:server": "babel server --out-dir lib --source-maps",
     "clean": "rimraf assets lib",
     "copy": "cpr src/locales assets/locales",
-    "lint": "eslint server/** src/** test/**/*.js",
+    "lint": "eslint server/** src/**/*.{js,jsx} test/**/*.js",
     "start": "forever start lib/server.js",
     "stop": "forever stop lib/server.js",
     "test": "npm-run-all lint test:server test:e2e",
