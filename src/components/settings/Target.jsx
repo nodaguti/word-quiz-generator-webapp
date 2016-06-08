@@ -1,6 +1,7 @@
 import { List, Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
+import MaterialDetails from 'components/MaterialDetails';
 import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import TextField from 'material-ui/lib/text-field';
@@ -57,8 +58,9 @@ export default class TargetSettings extends Component {
       id,
       name,
       lang,
+      ansLang,
     } = material.toObject();
-    const nameWithLang = `${name} (${lang})`;
+    const nameWithLang = `${name} (${lang}-${ansLang})`;
 
     return (
       <MenuItem value={id} key={id} label={name} primaryText={nameWithLang} />
@@ -84,6 +86,10 @@ export default class TargetSettings extends Component {
         >
           {this.renderMaterialList()}
         </SelectField>
+        <br />
+        <MaterialDetails
+          {...currentMaterial.toObject()}
+        />
         <br />
         <TextField
           fullWidth
