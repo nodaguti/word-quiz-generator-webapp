@@ -17,7 +17,7 @@ Nightmare.action(
       event.initEvent('mouseup', true, true);
       element.dispatchEvent(event);
     }, done, selector);
-  }
+  },
 );
 
 const n = new Nightmare({

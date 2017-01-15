@@ -279,6 +279,16 @@ babel-core@^6.18.0, babel-core@^6.9.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
+babel-eslint@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.1.1.tgz#8a6a884f085aa7060af69cfc77341c2f99370fb2"
+  dependencies:
+    babel-code-frame "^6.16.0"
+    babel-traverse "^6.15.0"
+    babel-types "^6.15.0"
+    babylon "^6.13.0"
+    lodash.pickby "^4.6.0"
+
 babel-generator@^6.1.0, babel-generator@^6.21.0:
   version "6.21.0"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.21.0.tgz#605f1269c489a1c75deeca7ea16d43d4656c8494"
@@ -750,7 +760,7 @@ babel-template@^6.14.0, babel-template@^6.15.0, babel-template@^6.16.0, babel-te
     babylon "^6.11.0"
     lodash "^4.2.0"
 
-babel-traverse@^6.16.0, babel-traverse@^6.18.0, babel-traverse@^6.21.0:
+babel-traverse@^6.15.0, babel-traverse@^6.16.0, babel-traverse@^6.18.0, babel-traverse@^6.21.0:
   version "6.21.0"
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.21.0.tgz#69c6365804f1a4f69eb1213f85b00a818b8c21ad"
   dependencies:
@@ -764,7 +774,7 @@ babel-traverse@^6.16.0, babel-traverse@^6.18.0, babel-traverse@^6.21.0:
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-babel-types@^6.16.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.21.0, babel-types@^6.5.2, babel-types@^6.8.0, babel-types@^6.9.0:
+babel-types@^6.15.0, babel-types@^6.16.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.21.0, babel-types@^6.5.2, babel-types@^6.8.0, babel-types@^6.9.0:
   version "6.21.0"
   resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.21.0.tgz#314b92168891ef6d3806b7f7a917fdf87c11a4b2"
   dependencies:
@@ -773,7 +783,7 @@ babel-types@^6.16.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.21
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
-babylon@^6.1.0, babylon@^6.11.0:
+babylon@^6.1.0, babylon@^6.11.0, babylon@^6.13.0:
   version "6.15.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.15.0.tgz#ba65cfa1a80e1759b0e89fb562e27dccae70348e"
 
@@ -3212,6 +3222,10 @@ lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
+lodash.pickby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.pickby/-/lodash.pickby-4.6.0.tgz#7dea21d8c18d7703a27c704c15d3b84a67e33aff"
+
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
@@ -4455,7 +4469,7 @@ react-tap-event-plugin@^2.0.1:
   dependencies:
     fbjs "^0.8.6"
 
-react@^15.1.0:
+react@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:
@@ -4887,7 +4901,7 @@ source-list-map@^0.1.4, source-list-map@~0.1.0, source-list-map@~0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-0.1.8.tgz#c550b2ab5427f6b3f21f5afead88c4f5587b2106"
 
-source-map-support@^0.4.0, source-map-support@^0.4.2:
+source-map-support@^0.4.0, source-map-support@^0.4.2, source-map-support@^0.4.8:
   version "0.4.8"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.8.tgz#4871918d8a3af07289182e974e32844327b2e98b"
   dependencies:

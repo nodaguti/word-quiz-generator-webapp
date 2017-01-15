@@ -33,7 +33,7 @@ export default function configureStore(initialState = {}) {
   const logger = createLogger({ stateTransformer });
   const createPersistentStore = compose(
     persistState(null, localStorageConfig),
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk, logger),
   )(createStore);
 
   return createPersistentStore(rootReducer, initialState);

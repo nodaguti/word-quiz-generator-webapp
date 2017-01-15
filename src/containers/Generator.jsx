@@ -34,9 +34,24 @@ class Generator extends Component {
     settings: PropTypes.instanceOf(Record).isRequired,
     resources: PropTypes.instanceOf(Record).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
-    generatorActions: PropTypes.object.isRequired,
-    settingsActions: PropTypes.object.isRequired,
-    errorActions: PropTypes.object.isRequired,
+    generatorActions: PropTypes.shape({
+      fetchAllMaterials: PropTypes.func.isRequired,
+      fetchAllSources: PropTypes.func.isRequired,
+      fetchAllPresets: PropTypes.func.isRequired,
+      clearQuiz: PropTypes.func.isRequired,
+      generate: PropTypes.func.isRequired,
+    }).isRequired,
+    settingsActions: PropTypes.shape({
+      updateMaterial: PropTypes.func.isRequired,
+      updateSections: PropTypes.func.isRequired,
+      updateSources: PropTypes.func.isRequired,
+      clearSources: PropTypes.func.isRequired,
+      updateFormat: PropTypes.func.isRequired,
+      updateAdvanced: PropTypes.func.isRequired,
+    }).isRequired,
+    errorActions: PropTypes.shape({
+      dismissError: PropTypes.func.isRequired,
+    }).isRequired,
     t: PropTypes.func.isRequired,
   };
 
@@ -117,9 +132,9 @@ class Generator extends Component {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(
   translate()(
-    Generator
-  )
+    Generator,
+  ),
 );

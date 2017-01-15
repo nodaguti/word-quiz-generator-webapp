@@ -13,7 +13,7 @@ export default class ErrorPopup extends Component {
     this.props.dismissError();
   }
 
-  renderDetails(details) {
+  renderDetails = (details) => {
     const {
       name,
       message,
@@ -37,7 +37,7 @@ export default class ErrorPopup extends Component {
     const latestError = this.props.errors.last();
 
     if (!latestError) {
-      return (<div></div>);
+      return (<div />);
     }
 
     const isDev = process.env.NODE_ENV === 'development';

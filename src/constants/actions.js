@@ -14,5 +14,5 @@ export default constantMirror(
   'UPDATE_ADVANCED',
   'CLEAR_ADVANCED',
   'EMIT_ERROR',
-  'DISMISS_ERROR'
+  'DISMISS_ERROR',
 );

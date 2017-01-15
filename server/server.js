@@ -7,7 +7,7 @@ import compress from 'koa-compress';
 import parseJSON from 'koa-parse-json';
 import logger from 'koa-log';
 import path from 'path';
-import routes from './routes.js';
+import routes from './routes';
 
 const app = new Koa();
 const ip =

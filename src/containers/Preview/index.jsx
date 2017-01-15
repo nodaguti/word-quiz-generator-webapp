@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 import * as errorActions from 'redux/actions/error';
-import { verticalRLLangs } from 'constants/displaySettings';
+import verticalRLLangs from 'constants/displaySettings';
 import ErrorPopup from 'components/ErrorPopup';
 import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';

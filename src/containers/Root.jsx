@@ -1,19 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { browserHistory, Router } from 'react-router';
 import routes from 'routes';
 import 'global.css';
 
-export default class Root extends Component {
-  static propTypes = {
-    store: PropTypes.object.isRequired,
-  };
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>
+);
 
-  render() {
-    return (
-      <Provider store={this.props.store}>
-        <Router history={browserHistory} routes={routes} />
-      </Provider>
-    );
-  }
-}
+Root.propTypes = {
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default Root;

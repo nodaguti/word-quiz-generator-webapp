@@ -1,5 +1,5 @@
-if (process.env.NODE_ENV === 'development') {
-  module.exports = require('./configureStore.dev.js');
-} else {
-  module.exports = require('./configureStore.js');
-}
+const configureStore = process.env.NODE_ENV === 'development' ?
+  './configureStore.dev.js' :
+  './configureStore.js';
+
+module.exports = require(configureStore);

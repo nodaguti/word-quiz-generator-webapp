@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 
@@ -8,22 +8,22 @@ const githubIcon = (<IconButton
   linkButton
 />);
 
-export default class Header extends Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    className: PropTypes.string,
-  };
+const Header = ({ className, title }) => (
+  <AppBar
+    className={className}
+    title={`Word Quiz Generator: ${title}`}
+    iconElementLeft={<div />}
+    iconElementRight={githubIcon}
+  />
+);
 
-  render() {
-    const { className, title } = this.props;
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
 
-    return (
-      <AppBar
-        className={className}
-        title={`Word Quiz Generator: ${title}`}
-        iconElementLeft={<div></div>}
-        iconElementRight={githubIcon}
-      />
-    );
-  }
-}
+Header.defaultProps = {
+  className: '',
+};
+
+export default Header;
