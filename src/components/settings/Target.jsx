@@ -55,7 +55,7 @@ class TargetSettings extends Component {
       .toArray();
   }
 
-  renderMaterial(material) {
+  renderMaterial = (material) => {
     const {
       id,
       name,

@@ -19,6 +19,11 @@ class MaterialDetails extends Component {
     t: PropTypes.func.isRequired,
   };
 
+  static defaultProps = {
+    coverImg: '',
+    url: '',
+  };
+
   createHeader() {
     const {
       name,
@@ -31,7 +36,11 @@ class MaterialDetails extends Component {
           overlay={<CardTitle title={name} />}
           mediaStyle={{ textAlign: 'center' }}
         >
-          <img src={coverImg} className={CSS.coverImg} />
+          <img
+            src={coverImg}
+            className={CSS.coverImg}
+            alt={`The cover of "${name}"`}
+          />
         </CardMedia>
       );
     }

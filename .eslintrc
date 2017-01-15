@@ -1,9 +1,9 @@
 {
-  "parser": "babel-eslint",
+  "root": true,
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "rules": {
-    // This rule causes no rule definition error.
-    "react/prefer-stateless-function": 0
+    "arrow-parens": ["error", "always"]
   },
   "settings": {
     "import/resolver": "webpack"

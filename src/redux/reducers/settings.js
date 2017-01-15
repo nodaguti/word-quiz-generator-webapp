@@ -8,8 +8,8 @@ const Target = new Record({
 
 const Format = new Record({
   title: '',
-  size_: 0,   // 'size' causes an error in Immutable.js.
-              // https://github.com/facebook/immutable-js/issues/377
+  quizSize: 0,   // 'size' causes an error in Immutable.js.
+                 // https://github.com/facebook/immutable-js/issues/377
   instruction: '',
   answerKeysLabel: '',
 }, 'format-settings');

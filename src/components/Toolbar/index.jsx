@@ -1,23 +1,23 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Toolbar from 'material-ui/Toolbar/Toolbar';
 import ToolbarGroup from 'material-ui/Toolbar/ToolbarGroup';
 import CSS from './index.css';
 
-export default class SettingsPanel extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-  };
+const SettingsPanel = ({ className, children }) => (
+  <Toolbar className={`${className} ${CSS.toolbar}`}>
+    <ToolbarGroup firstChild float="left">
+      {children}
+    </ToolbarGroup>
+  </Toolbar>
+);
 
-  render() {
-    const { className, children } = this.props;
+SettingsPanel.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
 
-    return (
-      <Toolbar className={`${className} ${CSS.toolbar}`}>
-        <ToolbarGroup firstChild float="left">
-          {children}
-        </ToolbarGroup>
-      </Toolbar>
-    );
-  }
-}
+SettingsPanel.defaultProps = {
+  className: '',
+};
+
+export default SettingsPanel;

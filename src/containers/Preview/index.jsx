@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 import * as errorActions from 'redux/actions/error';
-import { verticalRLLangs } from 'constants/displaySettings';
+import verticalRLLangs from 'constants/displaySettings';
 import ErrorPopup from 'components/ErrorPopup';
 import Content from 'components/Content';
 import Toolbar from 'components/Toolbar';
@@ -30,7 +30,9 @@ class Preview extends Component {
     quiz: PropTypes.instanceOf(Record).isRequired,
     settings: PropTypes.instanceOf(Record).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
-    errorActions: PropTypes.object.isRequired,
+    errorActions: PropTypes.shape({
+      dismissError: PropTypes.func.isRequired,
+    }).isRequired,
     t: PropTypes.func.isRequired,
   };
 
@@ -107,9 +109,9 @@ class Preview extends Component {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(
   translate()(
-    Preview
-  )
+    Preview,
+  ),
 );

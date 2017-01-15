@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import checkStatus from 'fetch-check-http-status';
 import actions from 'constants/actions';
 import i18n from 'i18n';
@@ -85,7 +84,7 @@ export function generate(settings) {
     ...advanced.toObject(),
   };
 
-  data.size = data.size_;
+  data.size = data.quizSize;
 
   // Validate sources here because <Table> has no validation methods.
   if (sources.isEmpty()) {

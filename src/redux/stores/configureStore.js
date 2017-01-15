@@ -23,7 +23,7 @@ const localStorageConfig = {
 export default function configureStore(initialState = {}) {
   const createPersistentStore = compose(
     persistState(null, localStorageConfig),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
   )(createStore);
 
   return createPersistentStore(rootReducer, initialState);

@@ -1,33 +1,31 @@
 import { Map } from 'immutable';
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-export default class Question extends Component {
-  static propTypes = {
-    question: PropTypes.instanceOf(Map).isRequired,
-  };
+const Question = ({ question }) => {
+  const {
+    body,
+    reference,
+  } = question.toJS();
+  const elems = [];
 
-  render() {
-    const { question } = this.props;
+  body.forEach(({ text, isQuestionPart }) => {
+    if (isQuestionPart) {
+      elems.push(<u>{text}</u>);
+    } else {
+      elems.push(<span>{text}</span>);
+    }
+  });
 
-    const {
-      body,
-      reference,
-    } = question.toJS();
-    const elems = [];
+  return (
+    <li>
+      <span>{elems}</span>
+      <span style={{ marginLeft: '1em' }}>({reference})</span>
+    </li>
+  );
+};
 
-    body.forEach(({ text, isQuestionPart }) => {
-      if (isQuestionPart) {
-        elems.push(<u>{text}</u>);
-      } else {
-        elems.push(<span>{text}</span>);
-      }
-    });
+Question.propTypes = {
+  question: PropTypes.instanceOf(Map).isRequired,
+};
 
-    return (
-      <li>
-        <span>{elems}</span>
-        <span style={{ marginLeft: '1em' }}>({reference})</span>
-      </li>
-    );
-  }
-}
+export default Question;

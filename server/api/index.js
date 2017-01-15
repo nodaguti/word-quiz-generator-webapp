@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 export function loadResources(_path) {
   const root = path.dirname(_path);
-  const resources = require(_path); // eslint-disable-line global-require
+  const resources = require(_path); // eslint-disable-line global-require, import/no-dynamic-require
 
   resources.materials.forEach((item) => {
     item.path = path.resolve(root, item.path);
@@ -30,7 +30,7 @@ function buildSafeResources(resources) {
   safeResources.materials.forEach((item) => delete item.path);
   safeResources.sources.forEach((item) => delete item.path);
   safeResources.presets = JSON.parse(
-    JSON.stringify(presets, (k, v) => (_.isRegExp(v) ? v.source : v))
+    JSON.stringify(presets, (k, v) => (_.isRegExp(v) ? v.source : v)),
   );
 
   return safeResources;
@@ -85,7 +85,7 @@ export default {
         .map((id) => resources
           .sources
           .find((item) => item.id === id)
-          .path
+          .path,
         )
         .join(',');
       sentenceSeparator =

@@ -33,7 +33,7 @@ class SourcesSettings extends Component {
           .toSeq()
           .filter((source) => !filter || source.get('lang') === filter)
           .map((source) => source.get('id'))
-          .toList()
+          .toList(),
       );
     } else if (selectedRows === 'none') {
       clearSources();
@@ -44,7 +44,7 @@ class SourcesSettings extends Component {
           .filter((source) => !filter || source.get('lang') === filter)
           .filter((source, idx) => selectedRows.indexOf(idx) !== -1)
           .map((source) => source.get('id'))
-          .toList()
+          .toList(),
       );
     }
   }
@@ -60,12 +60,12 @@ class SourcesSettings extends Component {
       .toSeq()
       .filter((source) => !filter || source.get('lang') === filter)
       .map((source) =>
-        this.renderSource(source, selectedSources.includes(source.get('id')))
+        this.renderSource(source, selectedSources.includes(source.get('id'))),
       )
       .toArray();
   }
 
-  renderSource(source, selected) {
+  renderSource = (source, selected) => {
     const {
       id,
       name,

@@ -12,5 +12,5 @@ render(
   <I18nextProvider i18n={i18n}>
     <Root store={configureStore()} />
   </I18nextProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

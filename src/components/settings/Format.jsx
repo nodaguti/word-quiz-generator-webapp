@@ -38,7 +38,7 @@ class FormatSettings extends Component {
     } = this.props;
     const {
       title,
-      size_: size,
+      quizSize: size,
       instruction,
       answerKeysLabel,
     } = currentSettings.toObject();
