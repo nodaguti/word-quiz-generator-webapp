@@ -7,10 +7,20 @@ import CSS from './settings.css';
 
 class AdvancedSettings extends Component {
   static propTypes = {
-    preset: PropTypes.object,
+    preset: PropTypes.shape({
+      sentenceSeparator: PropTypes.string,
+      clauseRegExp: PropTypes.string,
+      wordRegExp: PropTypes.string,
+      wordBoundaryRegExp: PropTypes.string,
+      abbrRegExp: PropTypes.string,
+    }),
     currentSettings: PropTypes.instanceOf(Record).isRequired,
     updateAdvanced: PropTypes.func.isRequired,
     t: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    preset: {},
   };
 
   onBlurSentenceSeparator = (event) => {

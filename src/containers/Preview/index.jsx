@@ -30,7 +30,9 @@ class Preview extends Component {
     quiz: PropTypes.instanceOf(Record).isRequired,
     settings: PropTypes.instanceOf(Record).isRequired,
     errors: PropTypes.instanceOf(List).isRequired,
-    errorActions: PropTypes.object.isRequired,
+    errorActions: PropTypes.shape({
+      dismissError: PropTypes.func.isRequired,
+    }).isRequired,
     t: PropTypes.func.isRequired,
   };
 
@@ -107,9 +109,9 @@ class Preview extends Component {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(
   translate()(
-    Preview
-  )
+    Preview,
+  ),
 );

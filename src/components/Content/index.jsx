@@ -1,16 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import CSS from './index.css';
 
-export default class SettingsPanel extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-  };
+const SettingsPanel = ({ children }) => (
+  <div className={CSS.content}>{children}</div>
+);
 
-  render() {
-    const { children } = this.props;
+SettingsPanel.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-    return (
-      <div className={CSS.content}>{children}</div>
-    );
-  }
-}
+export default SettingsPanel;

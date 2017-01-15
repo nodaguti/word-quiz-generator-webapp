@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import checkStatus from 'fetch-check-http-status';
 import actions from 'constants/actions';
 import i18n from 'i18n';

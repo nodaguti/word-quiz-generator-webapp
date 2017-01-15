@@ -13,7 +13,13 @@ export default class Quiz extends Component {
     vertical: PropTypes.bool.isRequired,
   };
 
-  renderAnswer(question) {
+  static defaultProps = {
+    title: 'Quiz',
+    instruction: 'Write down the meaning of underlined phrases.',
+    answerKeysLabel: 'Key',
+  };
+
+  renderAnswer = (question) => {
     const {
       answer,
       phrase,
