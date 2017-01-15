@@ -48,7 +48,7 @@ export function updateFormat({
     type: actions.UPDATE_FORMAT,
     payload: {
       title,
-      size_: size,
+      quizSize: size,
       instruction,
       answerKeysLabel,
     },

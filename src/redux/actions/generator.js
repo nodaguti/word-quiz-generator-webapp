@@ -84,7 +84,7 @@ export function generate(settings) {
     ...advanced.toObject(),
   };
 
-  data.size = data.size_;
+  data.size = data.quizSize;
 
   // Validate sources here because <Table> has no validation methods.
   if (sources.isEmpty()) {
