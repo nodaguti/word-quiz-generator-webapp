@@ -5,4 +5,3 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   module.exports = require('./configureStore.js');
 }
-
