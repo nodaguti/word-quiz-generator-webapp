@@ -1,6 +1,8 @@
-const configureStore = process.env.NODE_ENV === 'development' ?
-  './configureStore.dev.js' :
-  './configureStore.js';
+/* eslint-disable global-require */
 
-// eslint-disable-next-line import/no-dynamic-require
-module.exports = require(configureStore);
+if (process.env.NODE_ENV === 'development') {
+  module.exports = require('./configureStore.dev.js');
+} else {
+  module.exports = require('./configureStore.js');
+}
+
