@@ -5,6 +5,7 @@
       "name": "bbb",
       "lang": "en",
       "sections": "1-2",
+      "sectioningRule": "ccc",
       "path": "./materials/material.csv"
     },
     {
@@ -12,6 +13,7 @@
       "name": "ddd",
       "lang": "ojp",
       "sections": "1-2",
+      "sectioningRule": "eee",
       "path": "./materials/dummy.csv"
     }
   ],
