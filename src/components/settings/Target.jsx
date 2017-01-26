@@ -5,6 +5,8 @@ import MaterialDetails from 'components/MaterialDetails';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
+import Card from 'material-ui/Card/Card';
+import CardText from 'material-ui/Card/CardText';
 import { translate } from 'react-i18next';
 
 class TargetSettings extends Component {
@@ -78,6 +80,7 @@ class TargetSettings extends Component {
     const {
       id: materialId,
       sections: materialSections,
+      sectioningRule: materialSectioningRule,
     } = currentMaterial.toObject();
     const currentSections = currentSettings.sections;
 
@@ -98,11 +101,20 @@ class TargetSettings extends Component {
         <br />
         <TextField
           fullWidth
-          floatingLabelText={`${t('labels.sections')} *`}
+          floatingLabelText={`${t('labels.sections')} (${materialSections}) *`}
           hintText={materialSections}
           defaultValue={currentSections}
           onBlur={this.onBlurSections}
         />
+        <Card style={{ width: '70%', margin: '0 auto' }}>
+          <CardText>
+            <h2>{t('labels.aboutSectioning')}</h2>
+            <h3>{t('labels.sectionRange')}</h3>
+            <p>{materialSections}</p>
+            <h3>{t('labels.sectioningRule')}</h3>
+            <p>{materialSectioningRule}</p>
+          </CardText>
+        </Card>
       </Panel>
     );
   }
