@@ -1,5 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500|Cormorant+Garamond:700|EB+Garamond);
+@import url(https://fonts.googleapis.com/earlyaccess/sawarabimincho.css);
 
 @page {
   size: A4;
