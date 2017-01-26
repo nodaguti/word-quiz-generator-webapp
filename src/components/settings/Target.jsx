@@ -63,7 +63,10 @@ class TargetSettings extends Component {
       lang,
       ansLang,
     } = material.toObject();
-    const nameWithLang = `${name} (${lang}-${ansLang})`;
+    const { t } = this.props;
+    const langName = t(`langs.${lang}`);
+    const ansLangName = t(`langs.${ansLang}`);
+    const nameWithLang = `${name} (${langName} → ${ansLangName})`;
 
     return (
       <MenuItem value={id} key={id} label={name} primaryText={nameWithLang} />
