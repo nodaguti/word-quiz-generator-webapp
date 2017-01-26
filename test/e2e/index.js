@@ -24,7 +24,7 @@ const n = new Nightmare({
   x: 0,
   y: 0,
   show: process.env.NODE_ENV === 'development',
-  waitTimeout: 3000,
+  waitTimeout: 10000,
 });
 
 after(async () => {
