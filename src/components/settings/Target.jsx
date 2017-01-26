@@ -1,7 +1,7 @@
 import { List, Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
-import MaterialDetails from 'components/MaterialDetails';
+import MaterialDetails from 'components/settings/MaterialDetails';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
