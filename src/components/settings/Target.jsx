@@ -70,6 +70,55 @@ class TargetSettings extends Component {
     );
   }
 
+  renderPanel = ({
+    id,
+    currentMaterial,
+    currentSections,
+    sections,
+    sectioningRule,
+    t,
+  }) => (
+    <Panel title={t('labels.target')}>
+      <SelectField
+        fullWidth
+        floatingLabelText={t('labels.material')}
+        value={id}
+        onChange={this.onChangeMaterial}
+      >
+        {this.renderMaterialList()}
+      </SelectField>
+      <MaterialDetails {...currentMaterial.toObject()} />
+      <TextField
+        fullWidth
+        floatingLabelText={`${t('labels.sections')} (${sections}) *`}
+        hintText={sections}
+        defaultValue={currentSections}
+        onBlur={this.onBlurSections}
+      />
+      <SectionDetails
+        sections={sections}
+        sectioningRule={sectioningRule}
+      />
+    </Panel>
+  );
+
+  renderPanelWithNothingSelected = ({ t }) => (
+    <Panel title={t('labels.target')}>
+      <SelectField
+        fullWidth
+        floatingLabelText={t('labels.material')}
+        onChange={this.onChangeMaterial}
+      >
+        {this.renderMaterialList()}
+      </SelectField>
+      <TextField
+        fullWidth
+        floatingLabelText={`${t('labels.sections')} *`}
+        onBlur={this.onBlurSections}
+      />
+    </Panel>
+  );
+
   render() {
     const {
       currentSettings,
@@ -77,45 +126,23 @@ class TargetSettings extends Component {
     } = this.props;
     const currentMaterial = currentSettings.material;
     const {
-      id: materialId,
-      sections: materialSections,
-      sectioningRule: materialSectioningRule,
+      id,
+      sections,
+      sectioningRule,
     } = currentMaterial.toObject();
     const currentSections = currentSettings.sections;
 
-    return (
-      <Panel title={t('labels.target')}>
-        <SelectField
-          fullWidth
-          floatingLabelText={t('labels.material')}
-          value={materialId}
-          onChange={this.onChangeMaterial}
-        >
-          {this.renderMaterialList()}
-        </SelectField>
-        <br />
-        {
-          materialId ? <MaterialDetails {...currentMaterial.toObject()} /> : ''
-        }
-        <br />
-        <TextField
-          fullWidth
-          floatingLabelText={`${t('labels.sections')} (${materialSections}) *`}
-          hintText={materialSections}
-          defaultValue={currentSections}
-          onBlur={this.onBlurSections}
-        />
-        {
-          materialId ?
-            <SectionDetails
-              sections={materialSections}
-              sectioningRule={materialSectioningRule}
-            />
-          :
-            ''
-        }
-      </Panel>
-    );
+    return id ?
+      this.renderPanel({
+        id,
+        currentMaterial,
+        currentSections,
+        sections,
+        sectioningRule,
+        t,
+      })
+    :
+      this.renderPanelWithNothingSelected({ t });
   }
 }
 
