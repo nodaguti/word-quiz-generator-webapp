@@ -2,11 +2,10 @@ import { List, Record } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Panel from 'components/Panel';
 import MaterialDetails from 'components/settings/MaterialDetails';
+import SectionDetails from 'components/settings/SectionDetails';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import Card from 'material-ui/Card/Card';
-import CardText from 'material-ui/Card/CardText';
 import { translate } from 'react-i18next';
 
 class TargetSettings extends Component {
@@ -106,15 +105,15 @@ class TargetSettings extends Component {
           defaultValue={currentSections}
           onBlur={this.onBlurSections}
         />
-        <Card style={{ width: '70%', margin: '0 auto' }}>
-          <CardText>
-            <h2>{t('labels.aboutSectioning')}</h2>
-            <h3>{t('labels.sectionRange')}</h3>
-            <p>{materialSections}</p>
-            <h3>{t('labels.sectioningRule')}</h3>
-            <p>{materialSectioningRule}</p>
-          </CardText>
-        </Card>
+        {
+          materialId ?
+            <SectionDetails
+              sections={materialSections}
+              sectioningRule={materialSectioningRule}
+            />
+          :
+            ''
+        }
       </Panel>
     );
   }
