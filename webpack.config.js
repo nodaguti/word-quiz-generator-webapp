@@ -1,5 +1,6 @@
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
+const BabiliPreset = require('babel-preset-babili');
 const path = require('path');
 
 module.exports = {
@@ -49,8 +50,8 @@ module.exports = {
                     'not ie_mob <= 11',
                   ],
                 },
-//                modules: false,
-                exclude: ['transform-async-to-generator']
+                modules: false,
+                exclude: ['transform-async-to-generator'],
               },
             ],
             'react',
@@ -85,24 +86,23 @@ module.exports = {
     ],
   },
 
-  plugins: (() => {
-    const isDev = process.env.NODE_ENV === 'development';
-    const plugins = [
-      new ExtractTextPlugin('app.bundle.css'),
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': `'${process.env.NODE_ENV || 'production'}'`,
-        },
-      }),
-    ];
-    const prodPlugins = [
-      new webpack.optimize.UglifyJsPlugin({
-        screwIe8: true,
-        comments: false,
-        sourceMap: true,
-      }),
-    ];
-
-    return isDev ? plugins : plugins.concat(prodPlugins);
-  })(),
+  plugins: [
+    new ExtractTextPlugin('app.bundle.css'),
+    new BabiliPlugin({
+      babili: {
+        presets: [
+          [
+            BabiliPreset,
+            {
+              mangle: { topLevel: true },
+              deadcode: false,
+            },
+          ],
+        ],
+        plugins: [
+          'transform-inline-environment-variables',
+        ],
+      },
+    }),
+  ],
 };
