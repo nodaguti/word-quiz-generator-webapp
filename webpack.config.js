@@ -1,6 +1,6 @@
+const { DefinePlugin } = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
-const BabiliPreset = require('babel-preset-babili');
 const path = require('path');
 
 module.exports = {
@@ -89,20 +89,11 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('app.bundle.css'),
-    new BabiliPlugin({}, {
-      babili: {
-        presets: [
-          [
-            BabiliPreset,
-            {
-              mangle: { topLevel: true },
-            },
-          ],
-        ],
-        plugins: [
-          'transform-inline-environment-variables',
-        ],
-      },
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+    new BabiliPlugin({
+      mangle: { topLevel: true },
     }),
   ],
 };
