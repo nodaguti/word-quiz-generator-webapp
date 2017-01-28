@@ -36,7 +36,7 @@
     "redux-localstorage": "^0.4.0",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^2.1.0",
-    "source-map-support": "^0.4.8",
+    "source-map-support": "^0.4.11",
     "transit-immutable-js": "^0.7.0",
     "transit-js": "^0.8.846",
     "word-quiz-generator": "^4.0.0"
@@ -57,7 +57,7 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-power-assert": "^1.0.0",
     "babel-preset-react": "^6.5.0",
-    "babili-webpack-plugin": "^0.0.8",
+    "babili-webpack-plugin": "^0.0.9",
     "cpr": "^2.0.2",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
