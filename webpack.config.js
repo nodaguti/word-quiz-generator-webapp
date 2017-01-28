@@ -45,13 +45,14 @@ module.exports = {
               {
                 targets: {
                   browsers: [
-                    'last 2 versions',
+                    'last 1 version',
                     'not ie <= 11',
                     'not ie_mob <= 11',
                   ],
                 },
                 modules: false,
                 exclude: ['transform-async-to-generator'],
+                debug: true,
               },
             ],
             'react',
@@ -88,14 +89,13 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('app.bundle.css'),
-    new BabiliPlugin({
+    new BabiliPlugin({}, {
       babili: {
         presets: [
           [
             BabiliPreset,
             {
               mangle: { topLevel: true },
-              deadcode: false,
             },
           ],
         ],
