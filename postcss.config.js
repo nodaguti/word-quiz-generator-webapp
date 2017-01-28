@@ -9,7 +9,7 @@ module.exports = {
     nesting(),
     autoprefixer({
       browsers: [
-        'last 2 versions',
+        'last 1 version',
         'not ie <= 11',
         'not ie_mob <= 11',
       ],
