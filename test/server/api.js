@@ -1,5 +1,5 @@
 import path from 'path';
-import assert from 'power-assert';
+import assert from 'assert';
 import API, { loadResources } from '../../server/api';
 
 describe('loadResources()', () => {
