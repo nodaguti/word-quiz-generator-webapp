@@ -1,13 +1,9 @@
 {
   "presets": [
-    "es2015",
-    "react"
+    "power-assert"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    "async-to-promises",
-    "transform-runtime",
-    "babel-plugin-espower"
+    "transform-es2015-modules-commonjs",
+    "transform-async-to-generator"
   ]
 }
