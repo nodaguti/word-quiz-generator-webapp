@@ -5,7 +5,7 @@
   "author": "nodaguti",
   "bugs": "https://github.com/nodaguti/word-quiz-generator-webapp/issues",
   "dependencies": {
-    "babel-runtime": "^6.9.2",
+    "babel-runtime": "^6.23.0",
     "camel-case": "^3.0.0",
     "constant-mirror": "^1.1.1",
     "fetch-check-http-status": "^2.0.0",
