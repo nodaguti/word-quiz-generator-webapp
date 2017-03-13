@@ -44,7 +44,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-cli": "^6.9.0",
-    "babel-core": "^6.9.1",
+    "babel-core": "^6.24.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.3",
     "babel-plugin-async-to-promises": "^1.0.5",
