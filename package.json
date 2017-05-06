@@ -76,7 +76,7 @@
     "power-assert": "^1.4.1",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.5.1"
   },
   "engines": {
     "node": ">= 6.0",
