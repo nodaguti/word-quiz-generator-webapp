@@ -58,7 +58,7 @@
     "babili-webpack-plugin": "^0.0.10",
     "cpr": "^2.0.2",
     "cross-env": "^3.1.4",
-    "css-loader": "^0.26.1",
+    "css-loader": "^0.28.4",
     "csswring": "^5.1.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
